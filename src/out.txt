@@ -1,0 +1,3001 @@
+	.section	__TEXT,__text,regular,pure_instructions
+	.macosx_version_min 10, 18
+	.globl	_step
+	.p2align	4, 0x90
+_step:
+	pushq	%rbp
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	movabsq	$"_/switchBin/pin", %rax
+	movb	(%rax), %dl
+	movl	%edx, %eax
+	xorb	$1, %al
+	movabsq	$"_/switchB/dffmaster/not_d/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchB/dffmaster/and1/out", %rax
+	movb	%dl, (%rax)
+	movabsq	$"_/switchB/dffmaster/sr/nor1/out", %rax
+	orb	(%rax), %dl
+	movl	%edx, %ecx
+	movl	%edx, %ebx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchB/dffmaster/sr/nor2/out", %rdx
+	movb	%cl, (%rdx)
+	movl	%ebx, %ecx
+	andb	$1, %cl
+	movb	%cl, (%rax)
+	movabsq	$"_/profile_gen/IC2D/out", %rax
+	movb	(%rax), %r14b
+	movabsq	$"_/switchB/and1/out", %rsi
+	movb	(%rsi), %dl
+	movl	%r14d, %eax
+	andb	%dl, %al
+	movl	%r14d, %r15d
+	xorb	$1, %r15b
+	andb	%r15b, %dl
+	movl	%eax, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchB/dffpla2/and1/out", %rdi
+	movb	%cl, (%rdi)
+	movabsq	$"_/switchB/dffpla2/sr/nor1/out", %rcx
+	orb	(%rcx), %al
+	movl	%edx, %ecx
+	xorb	$1, %dl
+	andb	%al, %dl
+	notb	%al
+	andb	$1, %cl
+	movabsq	$"_/switchB/dffpla2/and2/out", %rdi
+	movb	%cl, (%rdi)
+	andb	$1, %al
+	movabsq	$"_/switchB/dffpla2/sr/nor2/out", %rcx
+	movb	%al, (%rcx)
+	movb	%dl, -1(%rsp)
+	movabsq	$"_/switchB/dffpla1/sr/nor1/out", %rax
+	movb	(%rax), %al
+	xorb	%al, %dl
+	movl	%edx, %ebp
+	xorb	$1, %dl
+	andb	%dl, %bl
+	andb	$1, %dl
+	movabsq	$"_/switchB/not1/out", %rcx
+	movb	%dl, (%rcx)
+	movl	%ebx, %ecx
+	andb	$1, %cl
+	movb	%cl, (%rsi)
+	movabsq	$"_/profile_gen/not1/out", %rcx
+	movb	(%rcx), %sil
+	movl	%ebx, %ecx
+	andb	%sil, %cl
+	movl	%esi, %edx
+	movl	%esi, %r8d
+	xorb	$1, %dl
+	andb	%dl, %bl
+	movl	%edx, %r11d
+	movb	%bl, -4(%rsp)
+	orb	%cl, %al
+	movb	%al, -3(%rsp)
+	andb	$1, %cl
+	movabsq	$"_/switchB/dffpla1/and1/out", %rdx
+	movb	%cl, (%rdx)
+	movl	%eax, %ecx
+	notb	%cl
+	movl	%ebx, %edx
+	andb	$1, %dl
+	movabsq	$"_/switchB/dffpla1/and2/out", %rsi
+	movb	%dl, (%rsi)
+	andb	$1, %cl
+	movabsq	$"_/switchB/dffpla1/sr/nor2/out", %rdx
+	movb	%cl, (%rdx)
+	movabsq	$"_/switchCin/pin", %rcx
+	movb	(%rcx), %r10b
+	movl	%r10d, %ecx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchC/dffmaster/not_d/out", %rdx
+	movb	%cl, (%rdx)
+	movabsq	$"_/switchC/dffmaster/and1/out", %rcx
+	movb	%r10b, (%rcx)
+	movabsq	$"_/switchC/dffmaster/sr/nor1/out", %rcx
+	orb	(%rcx), %r10b
+	movl	%r10d, %edx
+	notb	%dl
+	andb	$1, %dl
+	movabsq	$"_/switchC/dffmaster/sr/nor2/out", %rsi
+	movb	%dl, (%rsi)
+	movl	%r10d, %edx
+	andb	$1, %dl
+	movb	%dl, (%rcx)
+	movabsq	$"_/switchC/and1/out", %rdx
+	movb	(%rdx), %cl
+	movl	%r14d, %ebx
+	andb	%cl, %bl
+	andb	%r15b, %cl
+	movl	%ebx, %eax
+	andb	$1, %al
+	movabsq	$"_/switchC/dffpla2/and1/out", %rsi
+	movb	%al, (%rsi)
+	movabsq	$"_/switchC/dffpla2/sr/nor1/out", %rax
+	orb	(%rax), %bl
+	movl	%ecx, %eax
+	xorb	$1, %cl
+	andb	%bl, %cl
+	notb	%bl
+	andb	$1, %al
+	movabsq	$"_/switchC/dffpla2/and2/out", %rsi
+	movb	%al, (%rsi)
+	andb	$1, %bl
+	movabsq	$"_/switchC/dffpla2/sr/nor2/out", %rax
+	movb	%bl, (%rax)
+	movb	%cl, -2(%rsp)
+	movabsq	$"_/switchC/dffpla1/sr/nor1/out", %rax
+	movb	(%rax), %al
+	xorb	%al, %cl
+	movl	%eax, %ebx
+	movl	%ecx, %edi
+	xorb	$1, %cl
+	andb	%cl, %r10b
+	andb	$1, %cl
+	movabsq	$"_/switchC/not1/out", %rax
+	movb	%cl, (%rax)
+	movl	%r10d, %eax
+	andb	$1, %al
+	movb	%al, (%rdx)
+	movl	%r8d, %eax
+	andb	%r10b, %al
+	andb	%r11b, %r10b
+	orb	%al, %bl
+	movb	%bl, -6(%rsp)
+	andb	$1, %al
+	movabsq	$"_/switchC/dffpla1/and1/out", %rcx
+	movb	%al, (%rcx)
+	movl	%ebx, %eax
+	notb	%al
+	movl	%r10d, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchC/dffpla1/and2/out", %rdx
+	movb	%cl, (%rdx)
+	andb	$1, %al
+	movabsq	$"_/switchC/dffpla1/sr/nor2/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchDin/pin", %rax
+	movb	(%rax), %r12b
+	movl	%r12d, %eax
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchD/dffmaster/not_d/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchD/dffmaster/and1/out", %rax
+	movb	%r12b, (%rax)
+	movabsq	$"_/switchD/dffmaster/sr/nor1/out", %rax
+	orb	(%rax), %r12b
+	movl	%r12d, %ecx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchD/dffmaster/sr/nor2/out", %rdx
+	movb	%cl, (%rdx)
+	movl	%r12d, %ecx
+	andb	$1, %cl
+	movb	%cl, (%rax)
+	movabsq	$"_/switchD/and1/out", %rsi
+	movb	(%rsi), %cl
+	movl	%r14d, %eax
+	andb	%cl, %al
+	movl	%eax, %edx
+	andb	$1, %dl
+	movabsq	$"_/switchD/dffpla2/and1/out", %rbx
+	movb	%dl, (%rbx)
+	andb	%r15b, %cl
+	movl	%ecx, %edx
+	andb	$1, %dl
+	movabsq	$"_/switchD/dffpla2/and2/out", %rbx
+	movb	%dl, (%rbx)
+	movabsq	$"_/switchD/dffpla2/sr/nor1/out", %rdx
+	orb	(%rdx), %al
+	movl	%eax, %edx
+	notb	%dl
+	andb	$1, %dl
+	movabsq	$"_/switchD/dffpla2/sr/nor2/out", %rbx
+	movb	%dl, (%rbx)
+	xorb	$1, %cl
+	andb	%al, %cl
+	movb	%cl, -5(%rsp)
+	movabsq	$"_/switchD/dffpla1/sr/nor1/out", %rax
+	movb	(%rax), %al
+	xorb	%al, %cl
+	movl	%eax, %ebx
+	movl	%ecx, %edx
+	xorb	$1, %cl
+	andb	%cl, %r12b
+	andb	$1, %cl
+	movabsq	$"_/switchD/not1/out", %rax
+	movb	%cl, (%rax)
+	movl	%r12d, %eax
+	andb	$1, %al
+	movb	%al, (%rsi)
+	movl	%r8d, %eax
+	andb	%r12b, %al
+	orb	%al, %bl
+	movb	%bl, -8(%rsp)
+	andb	$1, %al
+	movabsq	$"_/switchD/dffpla1/and1/out", %rcx
+	movb	%al, (%rcx)
+	andb	%r11b, %r12b
+	movl	%r12d, %eax
+	andb	$1, %al
+	movabsq	$"_/switchD/dffpla1/and2/out", %rcx
+	movb	%al, (%rcx)
+	movl	%ebx, %eax
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchD/dffpla1/sr/nor2/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchEin/pin", %rax
+	movb	(%rax), %r9b
+	movl	%r9d, %eax
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchE/dffmaster/not_d/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchE/dffmaster/and1/out", %rax
+	movb	%r9b, (%rax)
+	movabsq	$"_/switchE/dffmaster/sr/nor1/out", %rax
+	orb	(%rax), %r9b
+	movl	%r9d, %ecx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchE/dffmaster/sr/nor2/out", %rsi
+	movb	%cl, (%rsi)
+	movl	%r9d, %ecx
+	andb	$1, %cl
+	movb	%cl, (%rax)
+	andb	$1, %bpl
+	movabsq	$"_/switchB/xor1/out", %rax
+	movb	%bpl, (%rax)
+	movabsq	$"_/switchE/and1/out", %rsi
+	movb	(%rsi), %cl
+	movl	%r14d, %ebx
+	andb	%cl, %bl
+	movl	%ebx, %eax
+	andb	$1, %al
+	movabsq	$"_/switchE/dffpla2/and1/out", %rbp
+	movb	%al, (%rbp)
+	andb	%r15b, %cl
+	movl	%ecx, %eax
+	andb	$1, %al
+	movabsq	$"_/switchE/dffpla2/and2/out", %rbp
+	movb	%al, (%rbp)
+	movabsq	$"_/switchE/dffpla2/sr/nor1/out", %rax
+	orb	(%rax), %bl
+	xorb	$1, %cl
+	andb	%bl, %cl
+	notb	%bl
+	andb	$1, %bl
+	movabsq	$"_/switchE/dffpla2/sr/nor2/out", %rax
+	movb	%bl, (%rax)
+	andb	$1, %dil
+	movabsq	$"_/switchC/xor1/out", %rax
+	movb	%dil, (%rax)
+	andb	$1, %dl
+	movabsq	$"_/switchD/xor1/out", %rax
+	movb	%dl, (%rax)
+	movb	%cl, -7(%rsp)
+	movabsq	$"_/switchE/dffpla1/sr/nor1/out", %rax
+	movb	(%rax), %al
+	xorb	%al, %cl
+	movl	%eax, %ebx
+	movl	%ecx, %edx
+	xorb	$1, %cl
+	andb	%cl, %r9b
+	andb	$1, %cl
+	movabsq	$"_/switchE/not1/out", %rax
+	movb	%cl, (%rax)
+	movl	%r9d, %eax
+	andb	$1, %al
+	movb	%al, (%rsi)
+	movl	%r8d, %eax
+	andb	%r9b, %al
+	orb	%al, %bl
+	movb	%bl, -10(%rsp)
+	andb	$1, %al
+	movabsq	$"_/switchE/dffpla1/and1/out", %rcx
+	movb	%al, (%rcx)
+	andb	%r11b, %r9b
+	movl	%r9d, %eax
+	andb	$1, %al
+	movabsq	$"_/switchE/dffpla1/and2/out", %rcx
+	movb	%al, (%rcx)
+	movl	%ebx, %eax
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchE/dffpla1/sr/nor2/out", %rcx
+	movb	%al, (%rcx)
+	andb	$1, %dl
+	movabsq	$"_/switchE/xor1/out", %rax
+	movb	%dl, (%rax)
+	movabsq	$"_/switchFin/pin", %rax
+	movb	(%rax), %r13b
+	movl	%r13d, %eax
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchF/dffmaster/not_d/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchF/dffmaster/and1/out", %rax
+	movb	%r13b, (%rax)
+	movabsq	$"_/switchF/dffmaster/sr/nor1/out", %rax
+	orb	(%rax), %r13b
+	movl	%r13d, %ecx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchF/dffmaster/sr/nor2/out", %rdx
+	movb	%cl, (%rdx)
+	movl	%r13d, %ecx
+	andb	$1, %cl
+	movb	%cl, (%rax)
+	movabsq	$"_/switchF/and1/out", %rax
+	movb	(%rax), %cl
+	movl	%r14d, %edx
+	andb	%cl, %dl
+	movl	%edx, %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchF/dffpla2/and1/out", %rsi
+	movb	%bl, (%rsi)
+	andb	%r15b, %cl
+	movl	%ecx, %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchF/dffpla2/and2/out", %rsi
+	movb	%bl, (%rsi)
+	movabsq	$"_/switchF/dffpla2/sr/nor1/out", %rsi
+	orb	(%rsi), %dl
+	xorb	$1, %cl
+	andb	%dl, %cl
+	notb	%dl
+	andb	$1, %dl
+	movabsq	$"_/switchF/dffpla2/sr/nor2/out", %rsi
+	movb	%dl, (%rsi)
+	movabsq	$"_/switchF/dffpla1/sr/nor1/out", %rdx
+	movb	%cl, -9(%rsp)
+	movb	(%rdx), %dl
+	xorb	%dl, %cl
+	movl	%edx, %ebx
+	movl	%ecx, %edx
+	andb	$1, %dl
+	movabsq	$"_/switchF/xor1/out", %rsi
+	movb	%dl, (%rsi)
+	xorb	$1, %cl
+	andb	%cl, %r13b
+	andb	$1, %cl
+	movabsq	$"_/switchF/not1/out", %rdx
+	movb	%cl, (%rdx)
+	movl	%r13d, %ecx
+	andb	$1, %cl
+	movb	%cl, (%rax)
+	movl	%r8d, %eax
+	andb	%r13b, %al
+	orb	%al, %bl
+	movb	%bl, -12(%rsp)
+	andb	$1, %al
+	movabsq	$"_/switchF/dffpla1/and1/out", %rcx
+	movb	%al, (%rcx)
+	andb	%r11b, %r13b
+	movl	%r13d, %eax
+	andb	$1, %al
+	movabsq	$"_/switchF/dffpla1/and2/out", %rcx
+	movb	%al, (%rcx)
+	movl	%ebx, %eax
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchF/dffpla1/sr/nor2/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchGin/pin", %rax
+	movb	(%rax), %sil
+	movl	%esi, %eax
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchG/dffmaster/not_d/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchG/dffmaster/and1/out", %rax
+	movb	%sil, (%rax)
+	movabsq	$"_/switchG/dffmaster/sr/nor1/out", %rax
+	orb	(%rax), %sil
+	movl	%esi, %ecx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchG/dffmaster/sr/nor2/out", %rdx
+	movb	%cl, (%rdx)
+	movl	%esi, %ecx
+	andb	$1, %cl
+	movb	%cl, (%rax)
+	movabsq	$"_/switchG/and1/out", %rdi
+	movb	(%rdi), %al
+	movl	%r14d, %ecx
+	andb	%al, %cl
+	movl	%ecx, %edx
+	andb	$1, %dl
+	movabsq	$"_/switchG/dffpla2/and1/out", %rbx
+	movb	%dl, (%rbx)
+	andb	%r15b, %al
+	movl	%eax, %edx
+	andb	$1, %dl
+	movabsq	$"_/switchG/dffpla2/and2/out", %rbx
+	movb	%dl, (%rbx)
+	movabsq	$"_/switchG/dffpla2/sr/nor1/out", %rdx
+	orb	(%rdx), %cl
+	xorb	$1, %al
+	andb	%cl, %al
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchG/dffpla2/sr/nor2/out", %rdx
+	movb	%cl, (%rdx)
+	movabsq	$"_/switchG/dffpla1/sr/nor1/out", %rcx
+	movb	%al, -11(%rsp)
+	movb	(%rcx), %cl
+	xorb	%cl, %al
+	movl	%ecx, %ebx
+	movb	%al, -18(%rsp)
+	movl	%eax, %ecx
+	xorb	$1, %cl
+	andb	%cl, %sil
+	andb	$1, %cl
+	movabsq	$"_/switchG/not1/out", %rdx
+	movb	%cl, (%rdx)
+	movl	%esi, %ecx
+	andb	$1, %cl
+	movb	%cl, (%rdi)
+	movl	%r8d, %edi
+	movb	%r8b, -19(%rsp)
+	movl	%r8d, %eax
+	andb	%sil, %al
+	orb	%al, %bl
+	movb	%bl, -14(%rsp)
+	andb	$1, %al
+	movabsq	$"_/switchG/dffpla1/and1/out", %rcx
+	movb	%al, (%rcx)
+	andb	%r11b, %sil
+	movb	%r11b, -20(%rsp)
+	movl	%esi, %eax
+	andb	$1, %al
+	movabsq	$"_/switchG/dffpla1/and2/out", %rcx
+	movb	%al, (%rcx)
+	movl	%ebx, %eax
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchG/dffpla1/sr/nor2/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchHin/pin", %rax
+	movb	(%rax), %r8b
+	movl	%r8d, %eax
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchH/dffmaster/not_d/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchH/dffmaster/and1/out", %rax
+	movb	%r8b, (%rax)
+	movabsq	$"_/switchH/dffmaster/sr/nor1/out", %rax
+	orb	(%rax), %r8b
+	movl	%r8d, %ecx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchH/dffmaster/sr/nor2/out", %rbx
+	movb	%cl, (%rbx)
+	movl	%r8d, %ecx
+	andb	$1, %cl
+	movb	%cl, (%rax)
+	movabsq	$"_/switchH/and1/out", %rax
+	movb	(%rax), %al
+	movl	%r14d, %ebx
+	andb	%al, %bl
+	movl	%ebx, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchH/dffpla2/and1/out", %rbp
+	movb	%cl, (%rbp)
+	andb	%r15b, %al
+	movl	%eax, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchH/dffpla2/and2/out", %rbp
+	movb	%cl, (%rbp)
+	movabsq	$"_/switchH/dffpla2/sr/nor1/out", %rcx
+	orb	(%rcx), %bl
+	xorb	$1, %al
+	andb	%bl, %al
+	notb	%bl
+	andb	$1, %bl
+	movabsq	$"_/switchH/dffpla2/sr/nor2/out", %rcx
+	movb	%bl, (%rcx)
+	movabsq	$"_/switchH/dffpla1/sr/nor1/out", %rcx
+	movb	%al, -13(%rsp)
+	movb	(%rcx), %cl
+	xorb	%cl, %al
+	movl	%ecx, %edx
+	movl	%eax, %ecx
+	xorb	$1, %cl
+	andb	%cl, %r8b
+	andb	$1, %cl
+	movabsq	$"_/switchH/not1/out", %rbx
+	movb	%cl, (%rbx)
+	movl	%r8d, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchH/and1/out", %rbx
+	movb	%cl, (%rbx)
+	movl	%edi, %ecx
+	andb	%r8b, %cl
+	orb	%cl, %dl
+	movb	%dl, -17(%rsp)
+	andb	$1, %cl
+	movabsq	$"_/switchH/dffpla1/and1/out", %rbx
+	movb	%cl, (%rbx)
+	andb	%r11b, %r8b
+	movl	%r8d, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchH/dffpla1/and2/out", %rbx
+	movb	%cl, (%rbx)
+	movl	%edx, %ecx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchH/dffpla1/sr/nor2/out", %rbx
+	movb	%cl, (%rbx)
+	movabsq	$"_/switchIin/pin", %rcx
+	movb	(%rcx), %r11b
+	movl	%r11d, %ebx
+	notb	%bl
+	andb	$1, %bl
+	movabsq	$"_/switchI/dffmaster/not_d/out", %rbp
+	movb	%bl, (%rbp)
+	movabsq	$"_/switchI/dffmaster/and1/out", %rbx
+	movb	%r11b, (%rbx)
+	movabsq	$"_/switchI/dffmaster/sr/nor1/out", %rbp
+	orb	(%rbp), %r11b
+	movl	%r11d, %ebx
+	notb	%bl
+	andb	$1, %bl
+	movabsq	$"_/switchI/dffmaster/sr/nor2/out", %rdi
+	movb	%bl, (%rdi)
+	movl	%r11d, %ecx
+	andb	$1, %cl
+	movb	%cl, (%rbp)
+	movl	%r15d, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchB/dffpla2/not_d/out", %rdi
+	movb	%cl, (%rdi)
+	movabsq	$"_/switchC/dffpla2/not_d/out", %rdi
+	movb	%cl, (%rdi)
+	movabsq	$"_/switchD/dffpla2/not_d/out", %rdi
+	movb	%cl, (%rdi)
+	movabsq	$"_/switchE/dffpla2/not_d/out", %rdi
+	movb	%cl, (%rdi)
+	movabsq	$"_/switchF/dffpla2/not_d/out", %rdi
+	movb	%cl, (%rdi)
+	movabsq	$"_/switchG/dffpla2/not_d/out", %rdi
+	movb	%cl, (%rdi)
+	movabsq	$"_/switchH/dffpla2/not_d/out", %rdi
+	movb	%cl, (%rdi)
+	movabsq	$"_/switchI/dffpla2/not_d/out", %rdi
+	movb	%cl, (%rdi)
+	movabsq	$"_/switchI/and1/out", %rbp
+	movb	(%rbp), %cl
+	andb	%cl, %r14b
+	andb	%cl, %r15b
+	movl	%r14d, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchI/dffpla2/and1/out", %rdi
+	movb	%cl, (%rdi)
+	movl	%r15d, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchI/dffpla2/and2/out", %rdi
+	movb	%cl, (%rdi)
+	movabsq	$"_/switchI/dffpla2/sr/nor1/out", %rcx
+	orb	(%rcx), %r14b
+	xorb	$1, %r15b
+	andb	%r14b, %r15b
+	notb	%r14b
+	andb	$1, %r14b
+	movabsq	$"_/switchI/dffpla2/sr/nor2/out", %rdi
+	movb	%r14b, (%rdi)
+	movb	%r15b, -15(%rsp)
+	movl	%r15d, %ebx
+	andb	$1, %bl
+	movb	%bl, (%rcx)
+	movabsq	$"_/switchI/dffpla1/sr/nor1/out", %r14
+	movb	(%r14), %cl
+	xorb	%cl, %r15b
+	movl	%r15d, %ebx
+	xorb	$1, %bl
+	andb	%bl, %r11b
+	andb	$1, %bl
+	movabsq	$"_/switchI/not1/out", %rdi
+	movb	%bl, (%rdi)
+	movl	%r11d, %ebx
+	andb	$1, %bl
+	movb	%bl, (%rbp)
+	movb	-19(%rsp), %dl
+	andb	%r11b, %dl
+	movb	-20(%rsp), %bl
+	andb	%bl, %r11b
+	andb	$1, %bl
+	movabsq	$"_/switchB/dffpla1/not_d/out", %rdi
+	movb	%bl, (%rdi)
+	movabsq	$"_/switchC/dffpla1/not_d/out", %rdi
+	movb	%bl, (%rdi)
+	movabsq	$"_/switchD/dffpla1/not_d/out", %rdi
+	movb	%bl, (%rdi)
+	movabsq	$"_/switchE/dffpla1/not_d/out", %rdi
+	movb	%bl, (%rdi)
+	movabsq	$"_/switchF/dffpla1/not_d/out", %rdi
+	movb	%bl, (%rdi)
+	movabsq	$"_/switchG/dffpla1/not_d/out", %rdi
+	movb	%bl, (%rdi)
+	movabsq	$"_/switchH/dffpla1/not_d/out", %rdi
+	movb	%bl, (%rdi)
+	movabsq	$"_/switchI/dffpla1/not_d/out", %rdi
+	movb	%bl, (%rdi)
+	orb	%dl, %cl
+	andb	$1, %dl
+	movabsq	$"_/switchI/dffpla1/and1/out", %rdi
+	movb	%dl, (%rdi)
+	movl	%r11d, %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchI/dffpla1/and2/out", %rdi
+	movb	%bl, (%rdi)
+	xorb	$1, %r11b
+	andb	%cl, %r11b
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchI/dffpla1/sr/nor2/out", %rdi
+	movb	%cl, (%rdi)
+	movl	%r11d, %ecx
+	andb	$1, %cl
+	movb	%cl, (%r14)
+	movabsq	$"_/switchA/xor1/out", %rcx
+	movb	(%rcx), %cl
+	movabsq	$"_/switchB/xor1/out", %rdx
+	xorb	(%rdx), %cl
+	movabsq	$"_/switchC/xor1/out", %rdx
+	movb	(%rdx), %bl
+	movabsq	$"_/switchD/xor1/out", %rdx
+	xorb	(%rdx), %bl
+	movl	%ebx, %edi
+	xorb	%cl, %bl
+	andb	$1, %cl
+	movabsq	$"_/profile_gen/IC1A/out", %rbp
+	movb	%cl, (%rbp)
+	andb	$1, %dil
+	movabsq	$"_/profile_gen/IC1B/out", %rcx
+	movb	%dil, (%rcx)
+	movl	%ebx, %ecx
+	andb	$1, %cl
+	movabsq	$"_/profile_gen/IC2A/out", %rdi
+	movb	%cl, (%rdi)
+	movabsq	$"_/switchE/xor1/out", %rcx
+	movb	(%rcx), %cl
+	movabsq	$"_/switchF/xor1/out", %rdx
+	xorb	(%rdx), %cl
+	movb	%al, -19(%rsp)
+	xorb	-18(%rsp), %al
+	movl	%eax, %edi
+	xorb	%cl, %al
+	andb	$1, %cl
+	movabsq	$"_/profile_gen/IC1C/out", %rbp
+	movb	%cl, (%rbp)
+	andb	$1, %dil
+	movabsq	$"_/profile_gen/IC1D/out", %rcx
+	movb	%dil, (%rcx)
+	xorb	%al, %bl
+	andb	$1, %al
+	movabsq	$"_/profile_gen/IC2B/out", %rcx
+	movb	%al, (%rcx)
+	movb	%r15b, -20(%rsp)
+	xorb	%bl, %r15b
+	andb	$1, %bl
+	movabsq	$"_/profile_gen/IC2C/out", %rax
+	movb	%bl, (%rax)
+	movabsq	$"_/switchAin/pin", %rax
+	movb	(%rax), %bl
+	movl	%ebx, %eax
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchA/dffmaster/not_d/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchA/dffmaster/and1/out", %rax
+	movb	%bl, (%rax)
+	movabsq	$"_/switchA/dffmaster/sr/nor1/out", %rax
+	orb	(%rax), %bl
+	movl	%ebx, %ecx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchA/dffmaster/sr/nor2/out", %rdi
+	movb	%cl, (%rdi)
+	movl	%ebx, %ecx
+	andb	$1, %cl
+	movb	%cl, (%rax)
+	movl	%r15d, %r14d
+	xorb	$1, %r14b
+	movl	%r14d, %eax
+	andb	$1, %al
+	movabsq	$"_/profile_gen/not1/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchA/dffpla2/not_d/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchA/and1/out", %rax
+	movb	(%rax), %bpl
+	movl	%r15d, %eax
+	andb	%bpl, %al
+	movl	%eax, %edi
+	andb	$1, %dil
+	movabsq	$"_/switchA/dffpla2/and1/out", %rcx
+	movb	%dil, (%rcx)
+	andb	%r14b, %bpl
+	movl	%ebp, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchA/dffpla2/and2/out", %rdi
+	movb	%cl, (%rdi)
+	movabsq	$"_/switchA/dffpla2/sr/nor1/out", %rcx
+	orb	(%rcx), %al
+	xorb	$1, %bpl
+	andb	%al, %bpl
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchA/dffpla2/sr/nor2/out", %rdi
+	movb	%al, (%rdi)
+	movl	%ebp, %eax
+	andb	$1, %al
+	movb	%al, (%rcx)
+	movabsq	$"_/switchA/dffpla1/sr/nor1/out", %rax
+	movb	(%rax), %al
+	movl	%ebp, %edx
+	xorb	%al, %dl
+	movb	%dl, -16(%rsp)
+	movl	%edx, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchA/xor1/out", %rdi
+	movb	%cl, (%rdi)
+	movl	%edx, %ecx
+	xorb	$1, %cl
+	andb	%cl, %bl
+	andb	$1, %cl
+	movabsq	$"_/switchA/not1/out", %rdi
+	movb	%cl, (%rdi)
+	movl	%ebx, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchA/and1/out", %rdx
+	movb	%cl, (%rdx)
+	movl	%r15d, %ecx
+	andb	$1, %cl
+	movabsq	$"_/profile_gen/IC2D/out", %rdx
+	movb	%cl, (%rdx)
+	movabsq	$"_/switchA/dffpla1/not_d/out", %rdi
+	movb	%cl, (%rdi)
+	andb	%bl, %r14b
+	andb	%r15b, %bl
+	orb	%r14b, %al
+	andb	$1, %r14b
+	movabsq	$"_/switchA/dffpla1/and1/out", %rcx
+	movb	%r14b, (%rcx)
+	movl	%ebx, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchA/dffpla1/and2/out", %rdi
+	movb	%cl, (%rdi)
+	movl	%eax, %ecx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchA/dffpla1/sr/nor2/out", %rdi
+	movb	%cl, (%rdi)
+	xorb	$1, %bl
+	andb	%al, %bl
+	movl	%ebx, %eax
+	andb	$1, %al
+	movabsq	$"_/switchA/dffpla1/sr/nor1/out", %rcx
+	movb	%al, (%rcx)
+	movb	-4(%rsp), %al
+	notb	%al
+	andb	-3(%rsp), %al
+	notb	%r10b
+	andb	-6(%rsp), %r10b
+	andb	$1, %al
+	movabsq	$"_/switchB/dffpla1/sr/nor1/out", %rcx
+	movb	%al, (%rcx)
+	andb	$1, %r10b
+	movabsq	$"_/switchC/dffpla1/sr/nor1/out", %rax
+	movb	%r10b, (%rax)
+	movb	(%rcx), %r14b
+	movb	(%rax), %r15b
+	movl	%r14d, %r10d
+	andb	%r15b, %r10b
+	andb	%bl, %r10b
+	movl	%r10d, %ecx
+	andb	$1, %cl
+	movabsq	$"_/win_pla1/IC1A/out", %rdi
+	movb	%cl, (%rdi)
+	notb	%r12b
+	andb	-8(%rsp), %r12b
+	notb	%r9b
+	andb	-10(%rsp), %r9b
+	notb	%r13b
+	andb	-12(%rsp), %r13b
+	notb	%sil
+	andb	-14(%rsp), %sil
+	xorb	$1, %r8b
+	andb	-17(%rsp), %r8b
+	andb	$1, %r12b
+	movabsq	$"_/switchD/dffpla1/sr/nor1/out", %rax
+	movb	%r12b, (%rax)
+	andb	$1, %r9b
+	movabsq	$"_/switchE/dffpla1/sr/nor1/out", %rcx
+	movb	%r9b, (%rcx)
+	andb	$1, %r13b
+	movabsq	$"_/switchF/dffpla1/sr/nor1/out", %rdx
+	movb	%r13b, (%rdx)
+	andb	$1, %sil
+	movabsq	$"_/switchG/dffpla1/sr/nor1/out", %r9
+	movb	%sil, (%r9)
+	movb	(%rcx), %dil
+	movb	(%rdx), %sil
+	movl	%edi, %ecx
+	andb	%sil, %cl
+	movb	(%rax), %al
+	andb	%al, %cl
+	orb	%cl, %r10b
+	andb	$1, %cl
+	movabsq	$"_/win_pla1/IC1B/out", %rdx
+	movb	%cl, (%rdx)
+	movl	%r10d, %ecx
+	andb	$1, %cl
+	movabsq	$"_/win_pla1/IC5A/out", %rdx
+	movb	%cl, (%rdx)
+	movl	%r8d, %r12d
+	movb	(%r9), %r9b
+	andb	%r9b, %r8b
+	andb	%r11b, %r8b
+	movl	%r8d, %ecx
+	andb	$1, %cl
+	movabsq	$"_/win_pla1/IC1C/out", %rdx
+	movb	%cl, (%rdx)
+	andb	%r9b, %al
+	andb	%bl, %al
+	movl	%eax, %ecx
+	andb	$1, %cl
+	movabsq	$"_/win_pla1/IC2A/out", %rdx
+	movb	%cl, (%rdx)
+	orb	%r8b, %al
+	orb	%al, %r10b
+	andb	$1, %al
+	movabsq	$"_/win_pla1/IC5B/out", %rcx
+	movb	%al, (%rcx)
+	movl	%r10d, %eax
+	andb	$1, %al
+	movabsq	$"_/win_pla1/IC6A/out", %rcx
+	movb	%al, (%rcx)
+	andb	$1, %r12b
+	movabsq	$"_/switchH/dffpla1/sr/nor1/out", %rax
+	movb	%r12b, (%rax)
+	andb	%dil, %r14b
+	andb	(%rax), %r14b
+	movl	%r14d, %eax
+	andb	$1, %al
+	movabsq	$"_/win_pla1/IC2B/out", %rcx
+	movb	%al, (%rcx)
+	andb	%r15b, %sil
+	andb	%r11b, %sil
+	movl	%esi, %eax
+	orb	%r14b, %sil
+	andb	%dil, %bl
+	andb	%r11b, %bl
+	andb	$1, %al
+	movabsq	$"_/win_pla1/IC2C/out", %rcx
+	movb	%al, (%rcx)
+	movl	%esi, %eax
+	andb	$1, %al
+	movabsq	$"_/win_pla1/IC5C/out", %rcx
+	movb	%al, (%rcx)
+	movl	%ebx, %eax
+	andb	$1, %al
+	movabsq	$"_/win_pla1/IC3C/out", %rcx
+	movb	%al, (%rcx)
+	andb	%r9b, %dil
+	andb	%r15b, %dil
+	orb	%dil, %bl
+	andb	$1, %dil
+	movabsq	$"_/win_pla1/IC4C/out", %rax
+	movb	%dil, (%rax)
+	movl	%ebx, %eax
+	andb	$1, %al
+	movabsq	$"_/win_pla1/IC5D/out", %rcx
+	movb	%al, (%rcx)
+	orb	%sil, %bl
+	orb	%bl, %r10b
+	andb	$1, %bl
+	movabsq	$"_/win_pla1/IC6B/out", %rax
+	movb	%bl, (%rax)
+	movl	%r10d, %eax
+	andb	$1, %al
+	movabsq	$"_/win_pla1/IC6C/out", %rcx
+	movb	%al, (%rcx)
+	movb	-1(%rsp), %cl
+	andb	$1, %cl
+	movabsq	$"_/switchB/dffpla2/sr/nor1/out", %rax
+	movb	%cl, (%rax)
+	movb	-2(%rsp), %dl
+	andb	$1, %dl
+	movabsq	$"_/switchC/dffpla2/sr/nor1/out", %rcx
+	movb	%dl, (%rcx)
+	movb	(%rax), %r8b
+	movb	(%rcx), %r15b
+	movl	%r8d, %r9d
+	andb	%r15b, %r9b
+	andb	%bpl, %r9b
+	movl	%r9d, %eax
+	andb	$1, %al
+	movabsq	$"_/win_pla2/IC1A/out", %rcx
+	movb	%al, (%rcx)
+	movb	-5(%rsp), %al
+	andb	$1, %al
+	movabsq	$"_/switchD/dffpla2/sr/nor1/out", %r14
+	movb	%al, (%r14)
+	movb	-7(%rsp), %al
+	andb	$1, %al
+	movabsq	$"_/switchE/dffpla2/sr/nor1/out", %rdx
+	movb	%al, (%rdx)
+	movb	-9(%rsp), %al
+	andb	$1, %al
+	movabsq	$"_/switchF/dffpla2/sr/nor1/out", %rsi
+	movb	%al, (%rsi)
+	movb	-11(%rsp), %bl
+	andb	$1, %bl
+	movabsq	$"_/switchG/dffpla2/sr/nor1/out", %rax
+	movb	%bl, (%rax)
+	movb	-13(%rsp), %cl
+	andb	$1, %cl
+	movabsq	$"_/switchH/dffpla2/sr/nor1/out", %rbx
+	movb	%cl, (%rbx)
+	movb	(%rax), %dil
+	movb	(%rbx), %r11b
+	movl	%edi, %eax
+	andb	%r11b, %al
+	movb	-15(%rsp), %r12b
+	andb	%r12b, %al
+	movb	(%r14), %cl
+	movb	(%rdx), %r14b
+	movb	(%rsi), %dl
+	movl	%r14d, %ebx
+	andb	%dl, %bl
+	andb	%cl, %bl
+	orb	%bl, %r9b
+	andb	$1, %bl
+	movabsq	$"_/win_pla2/IC1B/out", %rsi
+	movb	%bl, (%rsi)
+	movl	%r9d, %ebx
+	andb	$1, %bl
+	movabsq	$"_/win_pla2/IC5A/out", %rsi
+	movb	%bl, (%rsi)
+	movl	%eax, %ebx
+	andb	$1, %bl
+	movabsq	$"_/win_pla2/IC1C/out", %rsi
+	movb	%bl, (%rsi)
+	andb	%dil, %cl
+	andb	%bpl, %cl
+	movl	%ecx, %ebx
+	andb	$1, %bl
+	movabsq	$"_/win_pla2/IC2A/out", %rsi
+	movb	%bl, (%rsi)
+	orb	%al, %cl
+	andb	%r14b, %r11b
+	andb	%r8b, %r11b
+	orb	%cl, %r9b
+	andb	$1, %cl
+	movabsq	$"_/win_pla2/IC5B/out", %rax
+	movb	%cl, (%rax)
+	movl	%r9d, %eax
+	andb	$1, %al
+	movabsq	$"_/win_pla2/IC6A/out", %rcx
+	movb	%al, (%rcx)
+	movl	%r11d, %eax
+	andb	$1, %al
+	movabsq	$"_/win_pla2/IC2B/out", %rcx
+	movb	%al, (%rcx)
+	andb	%r15b, %dl
+	andb	%r12b, %dl
+	movl	%edx, %eax
+	orb	%r11b, %dl
+	andb	$1, %al
+	movabsq	$"_/win_pla2/IC2C/out", %rcx
+	movb	%al, (%rcx)
+	movl	%edx, %eax
+	andb	$1, %al
+	movabsq	$"_/win_pla2/IC5C/out", %rcx
+	movb	%al, (%rcx)
+	andb	%r14b, %bpl
+	andb	%r12b, %bpl
+	movl	%ebp, %eax
+	andb	%dil, %r14b
+	andb	%r15b, %r14b
+	orb	%r14b, %bpl
+	movl	%ebp, %ecx
+	orb	%dl, %bpl
+	movl	%ebp, %edx
+	orb	%r9b, %bpl
+	andb	$1, %al
+	movabsq	$"_/win_pla2/IC3C/out", %rsi
+	movb	%al, (%rsi)
+	andb	$1, %r14b
+	movabsq	$"_/win_pla2/IC4C/out", %rax
+	movb	%r14b, (%rax)
+	andb	$1, %cl
+	movabsq	$"_/win_pla2/IC5D/out", %rax
+	movb	%cl, (%rax)
+	andb	$1, %dl
+	movabsq	$"_/win_pla2/IC6B/out", %rax
+	movb	%dl, (%rax)
+	movl	%ebp, %eax
+	andb	$1, %al
+	movabsq	$"_/win_pla2/IC6C/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/one_win/IC1A/sr/nor2/out", %rdi
+	movb	(%rdi), %al
+	movl	%ebp, %ebx
+	andb	%al, %bl
+	xorb	$1, %al
+	andb	%al, %bpl
+	andb	$1, %al
+	movabsq	$"_/one_win/IC1B/not_d/out", %rsi
+	movb	%al, (%rsi)
+	movl	%ebx, %eax
+	andb	$1, %al
+	movabsq	$"_/one_win/IC1B/and1/out", %rsi
+	movb	%al, (%rsi)
+	movl	%ebp, %eax
+	andb	$1, %al
+	movabsq	$"_/one_win/IC1B/and2/out", %rsi
+	movb	%al, (%rsi)
+	movabsq	$"_/one_win/IC1B/sr/nor1/out", %rax
+	orb	(%rax), %bl
+	movl	%ebx, %edx
+	xorb	$1, %dl
+	notb	%bpl
+	andb	%bl, %bpl
+	andb	$1, %bpl
+	movb	%bpl, (%rax)
+	movl	%r10d, %ecx
+	andb	%dl, %cl
+	andb	$1, %dl
+	movabsq	$"_/one_win/IC1B/sr/nor2/out", %rsi
+	movb	%dl, (%rsi)
+	andb	%bl, %r10b
+	andb	$1, %bl
+	movabsq	$"_/one_win/IC1A/not_d/out", %rdx
+	movb	%bl, (%rdx)
+	movl	%ecx, %edx
+	andb	$1, %dl
+	movabsq	$"_/one_win/IC1A/and1/out", %rsi
+	movb	%dl, (%rsi)
+	movl	%r10d, %edx
+	andb	$1, %dl
+	movabsq	$"_/one_win/IC1A/and2/out", %rsi
+	movb	%dl, (%rsi)
+	movabsq	$"_/one_win/IC1A/sr/nor1/out", %rdx
+	orb	(%rdx), %cl
+	movl	%ecx, %eax
+	notb	%al
+	andb	$1, %al
+	movb	%al, (%rdi)
+	notb	%r10b
+	andb	%cl, %r10b
+	andb	$1, %r10b
+	movb	%r10b, (%rdx)
+	movabsq	$"_/switchB/xor1/out", %rax
+	movb	-16(%rsp), %cl
+	andb	(%rax), %cl
+	movl	%ecx, %eax
+	movl	%ecx, %edx
+	andb	$1, %al
+	movabsq	$"_/all_pressed/IC1A/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchC/xor1/out", %rax
+	movb	(%rax), %cl
+	movabsq	$"_/switchD/xor1/out", %rax
+	andb	(%rax), %cl
+	movl	%ecx, %eax
+	andb	%dl, %cl
+	andb	$1, %al
+	movabsq	$"_/all_pressed/IC1B/out", %rdx
+	movb	%al, (%rdx)
+	movl	%ecx, %eax
+	andb	$1, %al
+	movabsq	$"_/all_pressed/IC2A/out", %rdx
+	movb	%al, (%rdx)
+	movb	-18(%rsp), %al
+	andb	$1, %al
+	movabsq	$"_/switchE/xor1/out", %rdx
+	movb	(%rdx), %bl
+	movabsq	$"_/switchF/xor1/out", %rdx
+	andb	(%rdx), %bl
+	movl	%ebx, %edx
+	andb	$1, %dl
+	movabsq	$"_/all_pressed/IC1C/out", %rsi
+	movb	%dl, (%rsi)
+	movabsq	$"_/switchG/xor1/out", %rsi
+	movb	%al, (%rsi)
+	movb	-19(%rsp), %dl
+	andb	$1, %dl
+	movabsq	$"_/switchH/xor1/out", %rax
+	movb	%dl, (%rax)
+	movb	(%rsi), %dl
+	andb	(%rax), %dl
+	movl	%edx, %eax
+	andb	$1, %al
+	movabsq	$"_/all_pressed/IC1D/out", %rsi
+	movb	%al, (%rsi)
+	andb	%bl, %dl
+	andb	%dl, %cl
+	andb	$1, %dl
+	movabsq	$"_/all_pressed/IC2B/out", %rax
+	movb	%dl, (%rax)
+	movl	%ecx, %eax
+	andb	$1, %al
+	movabsq	$"_/all_pressed/IC2C/out", %rdx
+	movb	%al, (%rdx)
+	movb	-20(%rsp), %dl
+	andb	$1, %dl
+	movabsq	$"_/switchI/xor1/out", %rax
+	movb	%dl, (%rax)
+	andb	(%rax), %cl
+	andb	$1, %cl
+	movabsq	$"_/all_pressed/IC2D/out", %rax
+	movb	%cl, (%rax)
+	movabsq	$"_/switchB/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	movabsq	$"_/switchC/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	movabsq	$"_/switchD/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	movabsq	$"_/switchE/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	movabsq	$"_/switchF/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	movabsq	$"_/switchG/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	movabsq	$"_/switchH/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	movabsq	$"_/switchI/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	movabsq	$"_/switchA/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	retq
+
+	.globl	_burst
+	.p2align	4, 0x90
+_burst:
+	pushq	%rbp
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	movabsq	$"_/switchB/dffpla2/sr/nor1/out", %rax
+	movb	(%rax), %r10b
+	movabsq	$"_/switchC/dffpla2/sr/nor1/out", %rax
+	movb	(%rax), %al
+	movb	%al, -66(%rsp)
+	movq	$-1001, -8(%rsp)
+	.p2align	4, 0x90
+LBB1_1:
+	movabsq	$"_/switchBin/pin", %rax
+	movzbl	(%rax), %esi
+	movl	%esi, %ecx
+	xorb	$1, %cl
+	movabsq	$"_/switchB/dffmaster/not_d/out", %rax
+	movb	%cl, (%rax)
+	movabsq	$"_/switchB/dffmaster/and1/out", %rax
+	movb	%sil, (%rax)
+	movabsq	$"_/switchB/dffmaster/sr/nor1/out", %rax
+	orb	(%rax), %sil
+	movl	%esi, %ecx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchB/dffmaster/sr/nor2/out", %rdx
+	movb	%cl, (%rdx)
+	movl	%esi, %ecx
+	andb	$1, %cl
+	movb	%cl, (%rax)
+	movabsq	$"_/profile_gen/IC2D/out", %rax
+	movzbl	(%rax), %r13d
+	movabsq	$"_/switchB/and1/out", %rdi
+	movzbl	(%rdi), %eax
+	movl	%r13d, %ebx
+	andb	%al, %bl
+	movl	%r13d, %ecx
+	xorb	$1, %cl
+	andb	%cl, %al
+	movl	%ecx, %r8d
+	movl	%ebx, %edx
+	andb	$1, %dl
+	movabsq	$"_/switchB/dffpla2/and1/out", %rcx
+	movb	%dl, (%rcx)
+	orb	%r10b, %bl
+	movl	%eax, %edx
+	xorb	$1, %al
+	andb	%bl, %al
+	notb	%bl
+	andb	$1, %dl
+	movabsq	$"_/switchB/dffpla2/and2/out", %rcx
+	movb	%dl, (%rcx)
+	andb	$1, %bl
+	movabsq	$"_/switchB/dffpla2/sr/nor2/out", %rcx
+	movb	%bl, (%rcx)
+	movl	%eax, %edx
+	andb	$1, %dl
+	movabsq	$"_/switchB/dffpla2/sr/nor1/out", %rbp
+	movb	%dl, (%rbp)
+	movabsq	$"_/switchB/dffpla1/sr/nor1/out", %r14
+	movzbl	(%r14), %edx
+	xorb	%dl, %al
+	movl	%eax, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchB/xor1/out", %r15
+	movb	%cl, (%r15)
+	xorb	$1, %al
+	andb	%al, %sil
+	andb	$1, %al
+	movabsq	$"_/switchB/not1/out", %rcx
+	movb	%al, (%rcx)
+	movl	%esi, %eax
+	andb	$1, %al
+	movb	%al, (%rdi)
+	movabsq	$"_/profile_gen/not1/out", %rax
+	movzbl	(%rax), %ebx
+	movl	%esi, %eax
+	andb	%bl, %al
+	movl	%ebx, %ecx
+	movl	%ebx, %r11d
+	xorb	$1, %cl
+	andb	%cl, %sil
+	movl	%ecx, %r15d
+	orb	%al, %dl
+	andb	$1, %al
+	movabsq	$"_/switchB/dffpla1/and1/out", %rcx
+	movb	%al, (%rcx)
+	movl	%esi, %eax
+	notb	%sil
+	andb	%dl, %sil
+	notb	%dl
+	andb	$1, %al
+	movabsq	$"_/switchB/dffpla1/and2/out", %rcx
+	movb	%al, (%rcx)
+	andb	$1, %dl
+	movabsq	$"_/switchB/dffpla1/sr/nor2/out", %rax
+	movb	%dl, (%rax)
+	andb	$1, %sil
+	movb	%sil, (%r14)
+	movabsq	$"_/switchCin/pin", %rax
+	movzbl	(%rax), %esi
+	movl	%esi, %ecx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchC/dffmaster/not_d/out", %rax
+	movb	%cl, (%rax)
+	movabsq	$"_/switchC/dffmaster/and1/out", %rax
+	movb	%sil, (%rax)
+	movabsq	$"_/switchC/dffmaster/sr/nor1/out", %rax
+	orb	(%rax), %sil
+	movl	%esi, %ecx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchC/dffmaster/sr/nor2/out", %rdx
+	movb	%cl, (%rdx)
+	movl	%esi, %ecx
+	andb	$1, %cl
+	movb	%cl, (%rax)
+	movabsq	$"_/switchC/and1/out", %rdi
+	movzbl	(%rdi), %eax
+	movl	%r13d, %ebx
+	andb	%al, %bl
+	andb	%r8b, %al
+	movl	%ebx, %edx
+	andb	$1, %dl
+	movabsq	$"_/switchC/dffpla2/and1/out", %rcx
+	movb	%dl, (%rcx)
+	orb	-66(%rsp), %bl
+	movl	%eax, %edx
+	xorb	$1, %al
+	andb	%bl, %al
+	notb	%bl
+	andb	$1, %dl
+	movabsq	$"_/switchC/dffpla2/and2/out", %rcx
+	movb	%dl, (%rcx)
+	andb	$1, %bl
+	movabsq	$"_/switchC/dffpla2/sr/nor2/out", %rcx
+	movb	%bl, (%rcx)
+	movl	%eax, %edx
+	andb	$1, %dl
+	movabsq	$"_/switchC/dffpla2/sr/nor1/out", %rbp
+	movb	%dl, (%rbp)
+	movabsq	$"_/switchC/dffpla1/sr/nor1/out", %rbp
+	movzbl	(%rbp), %edx
+	xorb	%dl, %al
+	movl	%eax, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchC/xor1/out", %r10
+	movb	%cl, (%r10)
+	xorb	$1, %al
+	andb	%al, %sil
+	andb	$1, %al
+	movabsq	$"_/switchC/not1/out", %rcx
+	movb	%al, (%rcx)
+	movl	%esi, %eax
+	andb	$1, %al
+	movb	%al, (%rdi)
+	movb	%r11b, -69(%rsp)
+	movl	%r11d, %eax
+	andb	%sil, %al
+	movb	%r15b, -64(%rsp)
+	andb	%r15b, %sil
+	orb	%al, %dl
+	andb	$1, %al
+	movabsq	$"_/switchC/dffpla1/and1/out", %rcx
+	movb	%al, (%rcx)
+	movl	%esi, %eax
+	notb	%sil
+	andb	%dl, %sil
+	notb	%dl
+	andb	$1, %al
+	movabsq	$"_/switchC/dffpla1/and2/out", %rcx
+	movb	%al, (%rcx)
+	andb	$1, %dl
+	movabsq	$"_/switchC/dffpla1/sr/nor2/out", %rax
+	movb	%dl, (%rax)
+	andb	$1, %sil
+	movb	%sil, (%rbp)
+	movabsq	$"_/switchDin/pin", %rax
+	movzbl	(%rax), %eax
+	movl	%eax, %ecx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchD/dffmaster/not_d/out", %rdx
+	movb	%cl, (%rdx)
+	movabsq	$"_/switchD/dffmaster/and1/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchD/dffmaster/sr/nor1/out", %rdx
+	orb	(%rdx), %al
+	movl	%eax, %ecx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchD/dffmaster/sr/nor2/out", %rsi
+	movb	%cl, (%rsi)
+	movl	%eax, %ecx
+	andb	$1, %cl
+	movb	%cl, (%rdx)
+	movabsq	$"_/switchD/and1/out", %rsi
+	movzbl	(%rsi), %ebx
+	movl	%r13d, %ecx
+	andb	%bl, %cl
+	andb	%r8b, %bl
+	movl	%ecx, %edx
+	andb	$1, %dl
+	movabsq	$"_/switchD/dffpla2/and1/out", %rdi
+	movb	%dl, (%rdi)
+	movabsq	$"_/switchD/dffpla2/sr/nor1/out", %r10
+	orb	(%r10), %cl
+	movl	%ebx, %edx
+	xorb	$1, %bl
+	andb	%cl, %bl
+	notb	%cl
+	andb	$1, %dl
+	movabsq	$"_/switchD/dffpla2/and2/out", %rdi
+	movb	%dl, (%rdi)
+	andb	$1, %cl
+	movabsq	$"_/switchD/dffpla2/sr/nor2/out", %rdx
+	movb	%cl, (%rdx)
+	movl	%ebx, %ecx
+	andb	$1, %cl
+	movb	%cl, (%r10)
+	movabsq	$"_/switchD/dffpla1/sr/nor1/out", %rbp
+	movzbl	(%rbp), %ecx
+	xorb	%cl, %bl
+	movb	%bl, -63(%rsp)
+	movl	%ebx, %edx
+	andb	$1, %dl
+	movabsq	$"_/switchD/xor1/out", %rdi
+	movb	%dl, (%rdi)
+	movl	%ebx, %edx
+	xorb	$1, %dl
+	andb	%dl, %al
+	andb	$1, %dl
+	movabsq	$"_/switchD/not1/out", %rdi
+	movb	%dl, (%rdi)
+	movl	%eax, %edx
+	andb	$1, %dl
+	movb	%dl, (%rsi)
+	movl	%r11d, %edx
+	andb	%al, %dl
+	andb	%r15b, %al
+	orb	%dl, %cl
+	andb	$1, %dl
+	movabsq	$"_/switchD/dffpla1/and1/out", %rsi
+	movb	%dl, (%rsi)
+	movl	%eax, %edx
+	notb	%al
+	andb	%cl, %al
+	notb	%cl
+	andb	$1, %dl
+	movabsq	$"_/switchD/dffpla1/and2/out", %rsi
+	movb	%dl, (%rsi)
+	andb	$1, %cl
+	movabsq	$"_/switchD/dffpla1/sr/nor2/out", %rdx
+	movb	%cl, (%rdx)
+	andb	$1, %al
+	movb	%al, (%rbp)
+	movabsq	$"_/switchEin/pin", %rax
+	movzbl	(%rax), %ebx
+	movl	%ebx, %eax
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchE/dffmaster/not_d/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchE/dffmaster/and1/out", %rax
+	movb	%bl, (%rax)
+	movabsq	$"_/switchE/dffmaster/sr/nor1/out", %rcx
+	orb	(%rcx), %bl
+	movl	%ebx, %eax
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchE/dffmaster/sr/nor2/out", %rdx
+	movb	%al, (%rdx)
+	movl	%ebx, %eax
+	andb	$1, %al
+	movb	%al, (%rcx)
+	movabsq	$"_/switchE/and1/out", %rbp
+	movzbl	(%rbp), %r12d
+	movl	%r13d, %ecx
+	andb	%r12b, %cl
+	movl	%r8d, %eax
+	andb	%r8b, %r12b
+	movl	%ecx, %edx
+	andb	$1, %dl
+	movabsq	$"_/switchE/dffpla2/and1/out", %rsi
+	movb	%dl, (%rsi)
+	movabsq	$"_/switchE/dffpla2/sr/nor1/out", %r10
+	orb	(%r10), %cl
+	movl	%r12d, %edx
+	xorb	$1, %r12b
+	andb	%cl, %r12b
+	notb	%cl
+	andb	$1, %dl
+	movabsq	$"_/switchE/dffpla2/and2/out", %rsi
+	movb	%dl, (%rsi)
+	andb	$1, %cl
+	movabsq	$"_/switchE/dffpla2/sr/nor2/out", %rdx
+	movb	%cl, (%rdx)
+	movl	%r12d, %ecx
+	andb	$1, %cl
+	movb	%cl, (%r10)
+	movabsq	$"_/switchE/dffpla1/sr/nor1/out", %rcx
+	movzbl	(%rcx), %r8d
+	xorb	%r8b, %r12b
+	movl	%r12d, %esi
+	movabsq	$"_/switchF/and1/out", %r10
+	movzbl	(%r10), %r15d
+	movl	%r13d, %edi
+	andb	%r15b, %dil
+	andb	%al, %r15b
+	movl	%eax, %ecx
+	movb	%dil, -70(%rsp)
+	movabsq	$"_/switchF/dffpla2/sr/nor1/out", %r14
+	orb	(%r14), %dil
+	movl	%r15d, %r14d
+	xorb	$1, %r15b
+	andb	%dil, %r15b
+	movb	%r15b, -71(%rsp)
+	movabsq	$"_/switchF/dffpla1/sr/nor1/out", %r10
+	movzbl	(%r10), %r10d
+	xorb	%r10b, %r15b
+	movl	%r15d, %r11d
+	movl	%r15d, %r9d
+	xorb	%r12b, %r15b
+	movl	%r12d, %eax
+	andb	$1, %al
+	movabsq	$"_/switchE/xor1/out", %r12
+	movb	%al, (%r12)
+	movl	%ecx, %r12d
+	movb	%cl, -11(%rsp)
+	xorb	$1, %sil
+	andb	%sil, %bl
+	andb	$1, %sil
+	movabsq	$"_/switchE/not1/out", %rax
+	movb	%sil, (%rax)
+	movl	%ebx, %eax
+	andb	$1, %al
+	movb	%al, (%rbp)
+	movzbl	-69(%rsp), %ebp
+	movl	%ebp, %eax
+	andb	%bl, %al
+	movzbl	-64(%rsp), %ecx
+	andb	%cl, %bl
+	orb	%al, %r8b
+	andb	$1, %al
+	movabsq	$"_/switchE/dffpla1/and1/out", %rsi
+	movb	%al, (%rsi)
+	movl	%ebx, %eax
+	notb	%bl
+	andb	%r8b, %bl
+	notb	%r8b
+	andb	$1, %al
+	movabsq	$"_/switchE/dffpla1/and2/out", %rsi
+	movb	%al, (%rsi)
+	andb	$1, %r8b
+	movabsq	$"_/switchE/dffpla1/sr/nor2/out", %rax
+	movb	%r8b, (%rax)
+	andb	$1, %bl
+	movabsq	$"_/switchE/dffpla1/sr/nor1/out", %rax
+	movb	%bl, (%rax)
+	movabsq	$"_/switchFin/pin", %rax
+	movzbl	(%rax), %edx
+	movl	%edx, %eax
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchF/dffmaster/not_d/out", %rsi
+	movb	%al, (%rsi)
+	movabsq	$"_/switchF/dffmaster/and1/out", %rax
+	movb	%dl, (%rax)
+	movabsq	$"_/switchF/dffmaster/sr/nor1/out", %rsi
+	orb	(%rsi), %dl
+	movl	%edx, %eax
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchF/dffmaster/sr/nor2/out", %rbx
+	movb	%al, (%rbx)
+	movl	%edx, %eax
+	andb	$1, %al
+	movb	%al, (%rsi)
+	movzbl	-70(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchF/dffpla2/and1/out", %rax
+	movb	%bl, (%rax)
+	notb	%dil
+	andb	$1, %r14b
+	movabsq	$"_/switchF/dffpla2/and2/out", %rax
+	movb	%r14b, (%rax)
+	andb	$1, %dil
+	movabsq	$"_/switchF/dffpla2/sr/nor2/out", %rax
+	movb	%dil, (%rax)
+	movzbl	-71(%rsp), %eax
+	andb	$1, %al
+	movabsq	$"_/switchF/dffpla2/sr/nor1/out", %rsi
+	movb	%al, (%rsi)
+	andb	$1, %r11b
+	movabsq	$"_/switchF/xor1/out", %rax
+	movb	%r11b, (%rax)
+	xorb	$1, %r9b
+	andb	%r9b, %dl
+	andb	$1, %r9b
+	movabsq	$"_/switchF/not1/out", %rax
+	movb	%r9b, (%rax)
+	movl	%edx, %eax
+	andb	$1, %al
+	movabsq	$"_/switchF/and1/out", %rsi
+	movb	%al, (%rsi)
+	movl	%ebp, %eax
+	andb	%dl, %al
+	andb	%cl, %dl
+	orb	%al, %r10b
+	andb	$1, %al
+	movabsq	$"_/switchF/dffpla1/and1/out", %rcx
+	movb	%al, (%rcx)
+	movl	%edx, %eax
+	xorb	$1, %dl
+	andb	%r10b, %dl
+	movb	%dl, -70(%rsp)
+	notb	%r10b
+	andb	$1, %al
+	movabsq	$"_/switchF/dffpla1/and2/out", %rcx
+	movb	%al, (%rcx)
+	andb	$1, %r10b
+	movabsq	$"_/switchF/dffpla1/sr/nor2/out", %rax
+	movb	%r10b, (%rax)
+	andb	$1, %dl
+	movabsq	$"_/switchF/dffpla1/sr/nor1/out", %rcx
+	movb	%dl, (%rcx)
+	movabsq	$"_/switchGin/pin", %rax
+	movzbl	(%rax), %r8d
+	movl	%r8d, %eax
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchG/dffmaster/not_d/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchG/dffmaster/and1/out", %rax
+	movb	%r8b, (%rax)
+	movabsq	$"_/switchG/dffmaster/sr/nor1/out", %rcx
+	orb	(%rcx), %r8b
+	movl	%r8d, %eax
+	notb	%al
+	andb	$1, %al
+	movabsq	$"_/switchG/dffmaster/sr/nor2/out", %rdx
+	movb	%al, (%rdx)
+	movl	%r8d, %eax
+	andb	$1, %al
+	movb	%al, (%rcx)
+	movabsq	$"_/switchG/and1/out", %rdx
+	movzbl	(%rdx), %r11d
+	movl	%r13d, %eax
+	andb	%r11b, %al
+	movl	%r12d, %r10d
+	andb	%r12b, %r11b
+	movl	%eax, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchG/dffpla2/and1/out", %rsi
+	movb	%cl, (%rsi)
+	movabsq	$"_/switchG/dffpla2/sr/nor1/out", %rsi
+	orb	(%rsi), %al
+	movl	%r11d, %ecx
+	xorb	$1, %r11b
+	andb	%al, %r11b
+	notb	%al
+	andb	$1, %cl
+	movabsq	$"_/switchG/dffpla2/and2/out", %rdi
+	movb	%cl, (%rdi)
+	andb	$1, %al
+	movabsq	$"_/switchG/dffpla2/sr/nor2/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchG/dffpla1/sr/nor1/out", %rax
+	movzbl	(%rax), %ebx
+	movl	%r11d, %r9d
+	xorb	%bl, %r9b
+	movabsq	$"_/switchH/and1/out", %rax
+	movzbl	(%rax), %esi
+	movl	%r13d, %edi
+	andb	%sil, %dil
+	movl	%r12d, %ecx
+	andb	%r12b, %sil
+	movb	%dil, -26(%rsp)
+	movabsq	$"_/switchH/dffpla2/sr/nor1/out", %rax
+	orb	(%rax), %dil
+	movb	%dil, -25(%rsp)
+	movb	%sil, -27(%rsp)
+	xorb	$1, %sil
+	andb	%dil, %sil
+	movabsq	$"_/switchI/and1/out", %rax
+	movzbl	(%rax), %eax
+	andb	%al, %r13b
+	andb	%al, %cl
+	movabsq	$"_/switchH/dffpla1/sr/nor1/out", %rax
+	movzbl	(%rax), %ebp
+	movl	%esi, %eax
+	movb	%sil, -37(%rsp)
+	xorb	%bpl, %al
+	movl	%eax, %edi
+	movb	%r13b, -21(%rsp)
+	movabsq	$"_/switchI/dffpla2/sr/nor1/out", %rax
+	orb	(%rax), %r13b
+	movb	%r13b, -12(%rsp)
+	movb	%cl, -24(%rsp)
+	xorb	$1, %cl
+	andb	%r13b, %cl
+	movabsq	$"_/switchI/dffpla1/sr/nor1/out", %rax
+	movzbl	(%rax), %edx
+	movb	%dl, -65(%rsp)
+	movl	%ecx, %eax
+	movl	%ecx, %r14d
+	movb	%cl, -33(%rsp)
+	xorb	%dl, %al
+	movl	%eax, %r10d
+	movb	%al, -71(%rsp)
+	movabsq	$"_/switchB/xor1/out", %rax
+	movzbl	(%rax), %edx
+	movb	%dl, -10(%rsp)
+	movabsq	$"_/switchA/xor1/out", %rax
+	movzbl	(%rax), %ecx
+	xorb	%dl, %cl
+	movabsq	$"_/switchC/xor1/out", %rax
+	movzbl	(%rax), %edx
+	movb	%dl, -9(%rsp)
+	movzbl	-63(%rsp), %eax
+	xorb	%dl, %al
+	movb	%al, -63(%rsp)
+	movb	%cl, -14(%rsp)
+	xorb	%al, %cl
+	movb	%cl, -17(%rsp)
+	movb	%r9b, -68(%rsp)
+	movb	%r9b, -67(%rsp)
+	xorb	%dil, %r9b
+	movb	%r9b, -13(%rsp)
+	movb	%dil, -60(%rsp)
+	movb	%r15b, -15(%rsp)
+	xorb	%r9b, %r15b
+	movb	%r15b, -16(%rsp)
+	xorb	%cl, %r15b
+	movb	%r15b, -18(%rsp)
+	movl	%r10d, %eax
+	xorb	%r15b, %al
+	movl	%eax, %r13d
+	movl	%eax, %edx
+	movb	%al, -61(%rsp)
+	xorb	$1, %r13b
+	movabsq	$"_/switchA/and1/out", %rax
+	movzbl	(%rax), %ecx
+	andb	%cl, %dl
+	andb	%r13b, %cl
+	movb	%dl, -20(%rsp)
+	movabsq	$"_/switchA/dffpla2/sr/nor1/out", %rax
+	orb	(%rax), %dl
+	movb	%dl, -23(%rsp)
+	movb	%cl, -22(%rsp)
+	xorb	$1, %cl
+	andb	%dl, %cl
+	movabsq	$"_/switchB/dffpla2/sr/nor1/out", %rax
+	movzbl	(%rax), %edx
+	movabsq	$"_/switchC/dffpla2/sr/nor1/out", %rax
+	movzbl	(%rax), %r10d
+	movl	%edx, %eax
+	movl	%edx, %r9d
+	movb	%dl, -19(%rsp)
+	andb	%r10b, %al
+	movb	%r10b, -66(%rsp)
+	andb	%cl, %al
+	movb	%al, -29(%rsp)
+	movabsq	$"_/switchE/dffpla2/sr/nor1/out", %rax
+	movzbl	(%rax), %r15d
+	movabsq	$"_/switchF/dffpla2/sr/nor1/out", %rax
+	movzbl	(%rax), %eax
+	movb	%al, -32(%rsp)
+	movl	%r15d, %edx
+	andb	%al, %dl
+	movabsq	$"_/switchD/dffpla2/sr/nor1/out", %rax
+	movzbl	(%rax), %eax
+	andb	%al, %dl
+	movb	%dl, -31(%rsp)
+	andb	%r14b, %sil
+	andb	%r11b, %sil
+	movb	%sil, -38(%rsp)
+	andb	%cl, %al
+	andb	%r11b, %al
+	movb	%al, -30(%rsp)
+	andb	%r15b, %r9b
+	movb	%r9b, -62(%rsp)
+	movb	%cl, -34(%rsp)
+	movl	%ecx, %r14d
+	movl	%r15d, %edx
+	andb	%r15b, %cl
+	movb	%cl, -35(%rsp)
+	andb	%r10b, %dl
+	andb	%r11b, %dl
+	movb	%dl, -28(%rsp)
+	andb	$1, %r11b
+	movabsq	$"_/switchG/dffpla2/sr/nor1/out", %rax
+	movb	%r11b, (%rax)
+	movzbl	-68(%rsp), %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchG/xor1/out", %rax
+	movb	%cl, (%rax)
+	movzbl	-67(%rsp), %ecx
+	xorb	$1, %cl
+	andb	%cl, %r8b
+	andb	$1, %cl
+	movabsq	$"_/switchG/not1/out", %rax
+	movb	%cl, (%rax)
+	movl	%r8d, %eax
+	andb	$1, %al
+	movabsq	$"_/switchG/and1/out", %rcx
+	movb	%al, (%rcx)
+	movzbl	-69(%rsp), %r15d
+	movl	%r15d, %eax
+	andb	%r8b, %al
+	orb	%al, %bl
+	andb	$1, %al
+	movabsq	$"_/switchG/dffpla1/and1/out", %rcx
+	movb	%al, (%rcx)
+	movzbl	-64(%rsp), %edx
+	andb	%dl, %r8b
+	movl	%r8d, %eax
+	andb	$1, %al
+	movabsq	$"_/switchG/dffpla1/and2/out", %rcx
+	movb	%al, (%rcx)
+	xorb	$1, %r8b
+	andb	%bl, %r8b
+	movb	%r8b, -53(%rsp)
+	notb	%bl
+	andb	$1, %bl
+	movabsq	$"_/switchG/dffpla1/sr/nor2/out", %rcx
+	movb	%bl, (%rcx)
+	movabsq	$"_/switchHin/pin", %rax
+	movzbl	(%rax), %r11d
+	movabsq	$"_/switchH/dffmaster/and1/out", %rax
+	movb	%r11b, (%rax)
+	movl	%r11d, %r12d
+	movabsq	$"_/switchH/dffmaster/sr/nor1/out", %rax
+	orb	(%rax), %r11b
+	movl	%edi, %r10d
+	xorb	$1, %r10b
+	movl	%r11d, %edi
+	movb	%r11b, -59(%rsp)
+	andb	%r10b, %r11b
+	movl	%r15d, %r8d
+	movl	%r15d, %ebx
+	andb	%r11b, %r8b
+	movb	%r11b, -57(%rsp)
+	andb	%dl, %r11b
+	orb	%r8b, %bpl
+	movb	%bpl, -49(%rsp)
+	movb	%r11b, -56(%rsp)
+	xorb	$1, %r11b
+	andb	%bpl, %r11b
+	movabsq	$"_/switchIin/pin", %rax
+	movzbl	(%rax), %ecx
+	movabsq	$"_/switchI/dffmaster/and1/out", %rax
+	movb	%cl, (%rax)
+	movb	%cl, -52(%rsp)
+	movabsq	$"_/switchI/dffmaster/sr/nor1/out", %rax
+	orb	(%rax), %cl
+	movzbl	-71(%rsp), %eax
+	xorb	$1, %al
+	movb	%al, -50(%rsp)
+	movb	%cl, -58(%rsp)
+	movb	%cl, -54(%rsp)
+	andb	%al, %cl
+	movl	%r15d, %eax
+	andb	%cl, %al
+	movb	%al, -69(%rsp)
+	movb	%cl, -51(%rsp)
+	andb	%dl, %cl
+	movzbl	-65(%rsp), %edx
+	orb	%al, %dl
+	movb	%dl, -65(%rsp)
+	movb	%cl, -48(%rsp)
+	xorb	$1, %cl
+	andb	%dl, %cl
+	movabsq	$"_/switchAin/pin", %rax
+	movzbl	(%rax), %eax
+	movabsq	$"_/switchA/dffmaster/and1/out", %rdx
+	movb	%al, (%rdx)
+	movb	%al, -44(%rsp)
+	movabsq	$"_/switchA/dffmaster/sr/nor1/out", %rdx
+	orb	(%rdx), %al
+	movabsq	$"_/switchA/dffpla1/sr/nor1/out", %rdx
+	movzbl	(%rdx), %edx
+	xorb	%dl, %r14b
+	movb	%r14b, -67(%rsp)
+	xorb	$1, %r14b
+	movb	%r14b, -41(%rsp)
+	movb	%al, -47(%rsp)
+	movb	%al, -46(%rsp)
+	andb	%r14b, %al
+	movb	%r13b, -45(%rsp)
+	andb	%al, %r13b
+	movb	%r13b, -68(%rsp)
+	movb	%al, -43(%rsp)
+	andb	-61(%rsp), %al
+	orb	%r13b, %dl
+	movb	%dl, -40(%rsp)
+	movb	%al, -42(%rsp)
+	xorb	$1, %al
+	andb	%dl, %al
+	movabsq	$"_/switchB/dffpla1/sr/nor1/out", %rdx
+	movzbl	(%rdx), %r15d
+	movb	%r15b, -55(%rsp)
+	movabsq	$"_/switchC/dffpla1/sr/nor1/out", %rdx
+	movzbl	(%rdx), %ebx
+	andb	%bl, %r15b
+	movabsq	$"_/switchD/dffpla1/sr/nor1/out", %rdx
+	movzbl	(%rdx), %r14d
+	movl	%eax, %esi
+	andb	%r14b, %sil
+	movabsq	$"_/switchE/dffpla1/sr/nor1/out", %rdx
+	movzbl	(%rdx), %ebp
+	andb	%bpl, %r14b
+	movzbl	-70(%rsp), %r13d
+	andb	%r13b, %r14b
+	movl	%r11d, %r9d
+	andb	%cl, %r9b
+	movzbl	-53(%rsp), %edx
+	andb	%dl, %r9b
+	andb	%dl, %sil
+	movb	%sil, -39(%rsp)
+	andb	%bl, %r13b
+	movb	%r13b, -70(%rsp)
+	andb	%bpl, %bl
+	andb	%dl, %bl
+	movb	%bl, -36(%rsp)
+	andb	$1, %dl
+	movabsq	$"_/switchG/dffpla1/sr/nor1/out", %rbx
+	movb	%dl, (%rbx)
+	movq	-8(%rsp), %r13
+	notb	%r12b
+	andb	$1, %r12b
+	movabsq	$"_/switchH/dffmaster/not_d/out", %rbx
+	movb	%r12b, (%rbx)
+	notb	%dil
+	andb	$1, %dil
+	movabsq	$"_/switchH/dffmaster/sr/nor2/out", %rbx
+	movb	%dil, (%rbx)
+	movzbl	-59(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchH/dffmaster/sr/nor1/out", %rdx
+	movb	%bl, (%rdx)
+	movzbl	-26(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchH/dffpla2/and1/out", %rdi
+	movb	%bl, (%rdi)
+	movzbl	-27(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchH/dffpla2/and2/out", %rdi
+	movb	%bl, (%rdi)
+	movzbl	-25(%rsp), %ebx
+	notb	%bl
+	andb	$1, %bl
+	movabsq	$"_/switchH/dffpla2/sr/nor2/out", %rdi
+	movb	%bl, (%rdi)
+	movzbl	-37(%rsp), %ebx
+	andb	%bl, -62(%rsp)
+	andb	$1, %bl
+	movabsq	$"_/switchH/dffpla2/sr/nor1/out", %rdi
+	movb	%bl, (%rdi)
+	movzbl	-60(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchH/xor1/out", %rdi
+	movb	%bl, (%rdi)
+	andb	$1, %r10b
+	movabsq	$"_/switchH/not1/out", %rdi
+	movb	%r10b, (%rdi)
+	movzbl	-57(%rsp), %edx
+	andb	$1, %dl
+	movabsq	$"_/switchH/and1/out", %rdi
+	movb	%dl, (%rdi)
+	andb	$1, %r8b
+	movabsq	$"_/switchH/dffpla1/and1/out", %rdi
+	movb	%r8b, (%rdi)
+	movzbl	-56(%rsp), %edx
+	andb	$1, %dl
+	movabsq	$"_/switchH/dffpla1/and2/out", %rsi
+	movb	%dl, (%rsi)
+	movzbl	-49(%rsp), %ebx
+	notb	%bl
+	andb	$1, %bl
+	movabsq	$"_/switchH/dffpla1/sr/nor2/out", %rsi
+	movb	%bl, (%rsi)
+	movzbl	-55(%rsp), %r8d
+	andb	%bpl, %r8b
+	andb	%r11b, %r8b
+	andb	$1, %r11b
+	movabsq	$"_/switchH/dffpla1/sr/nor1/out", %rsi
+	movb	%r11b, (%rsi)
+	movzbl	-52(%rsp), %ebx
+	notb	%bl
+	andb	$1, %bl
+	movabsq	$"_/switchI/dffmaster/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movzbl	-58(%rsp), %ebx
+	notb	%bl
+	andb	$1, %bl
+	movabsq	$"_/switchI/dffmaster/sr/nor2/out", %rsi
+	movb	%bl, (%rsi)
+	movzbl	-54(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchI/dffmaster/sr/nor1/out", %rsi
+	movb	%bl, (%rsi)
+	movzbl	-11(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchB/dffpla2/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movabsq	$"_/switchC/dffpla2/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movabsq	$"_/switchD/dffpla2/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movabsq	$"_/switchE/dffpla2/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movabsq	$"_/switchF/dffpla2/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movabsq	$"_/switchG/dffpla2/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movabsq	$"_/switchH/dffpla2/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movabsq	$"_/switchI/dffpla2/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movzbl	-21(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchI/dffpla2/and1/out", %rsi
+	movb	%bl, (%rsi)
+	movzbl	-24(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchI/dffpla2/and2/out", %rsi
+	movb	%bl, (%rsi)
+	movzbl	-12(%rsp), %ebx
+	notb	%bl
+	andb	$1, %bl
+	movabsq	$"_/switchI/dffpla2/sr/nor2/out", %rsi
+	movb	%bl, (%rsi)
+	movzbl	-32(%rsp), %r12d
+	andb	-66(%rsp), %r12b
+	movzbl	-33(%rsp), %ebx
+	andb	%bl, %r12b
+	movzbl	-35(%rsp), %r10d
+	andb	%bl, %r10b
+	andb	$1, %bl
+	movabsq	$"_/switchI/dffpla2/sr/nor1/out", %rsi
+	movb	%bl, (%rsi)
+	movzbl	-71(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchI/xor1/out", %rsi
+	movb	%bl, (%rsi)
+	movzbl	-50(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchI/not1/out", %rsi
+	movb	%bl, (%rsi)
+	movzbl	-51(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchI/and1/out", %rsi
+	movb	%bl, (%rsi)
+	movzbl	-64(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchB/dffpla1/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movabsq	$"_/switchC/dffpla1/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movabsq	$"_/switchD/dffpla1/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movabsq	$"_/switchE/dffpla1/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movabsq	$"_/switchF/dffpla1/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movabsq	$"_/switchG/dffpla1/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movabsq	$"_/switchH/dffpla1/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movabsq	$"_/switchI/dffpla1/not_d/out", %rsi
+	movb	%bl, (%rsi)
+	movzbl	-69(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchI/dffpla1/and1/out", %rsi
+	movb	%bl, (%rsi)
+	movzbl	-48(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchI/dffpla1/and2/out", %rsi
+	movb	%bl, (%rsi)
+	movzbl	-65(%rsp), %ebx
+	notb	%bl
+	andb	$1, %bl
+	movabsq	$"_/switchI/dffpla1/sr/nor2/out", %rsi
+	movb	%bl, (%rsi)
+	andb	%al, %r15b
+	movl	%eax, %edi
+	andb	%bpl, %al
+	movzbl	-70(%rsp), %r11d
+	andb	%cl, %r11b
+	andb	%cl, %al
+	andb	$1, %cl
+	movabsq	$"_/switchI/dffpla1/sr/nor1/out", %rsi
+	movb	%cl, (%rsi)
+	movzbl	-14(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/profile_gen/IC1A/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-63(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/profile_gen/IC1B/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-17(%rsp), %ecx
+	andb	$1, %cl
+	movabsq	$"_/profile_gen/IC2A/out", %rsi
+	movb	%cl, (%rsi)
+	movzbl	-15(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/profile_gen/IC1C/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-13(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/profile_gen/IC1D/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-16(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/profile_gen/IC2B/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-18(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/profile_gen/IC2C/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-44(%rsp), %ebx
+	notb	%bl
+	andb	$1, %bl
+	movabsq	$"_/switchA/dffmaster/not_d/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-47(%rsp), %ebx
+	notb	%bl
+	andb	$1, %bl
+	movabsq	$"_/switchA/dffmaster/sr/nor2/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-46(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchA/dffmaster/sr/nor1/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-45(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/profile_gen/not1/out", %rcx
+	movb	%bl, (%rcx)
+	movabsq	$"_/switchA/dffpla2/not_d/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-20(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchA/dffpla2/and1/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-22(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchA/dffpla2/and2/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-23(%rsp), %ecx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchA/dffpla2/sr/nor2/out", %rsi
+	movb	%cl, (%rsi)
+	movzbl	-34(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchA/dffpla2/sr/nor1/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-67(%rsp), %edx
+	movl	%edx, %ecx
+	andb	$1, %cl
+	movabsq	$"_/switchA/xor1/out", %rsi
+	movb	%cl, (%rsi)
+	movzbl	-41(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchA/not1/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-43(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchA/and1/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-61(%rsp), %ecx
+	andb	$1, %cl
+	movabsq	$"_/profile_gen/IC2D/out", %rsi
+	movb	%cl, (%rsi)
+	movabsq	$"_/switchA/dffpla1/not_d/out", %rsi
+	movb	%cl, (%rsi)
+	movzbl	-68(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchA/dffpla1/and1/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-42(%rsp), %ebx
+	andb	$1, %bl
+	movabsq	$"_/switchA/dffpla1/and2/out", %rcx
+	movb	%bl, (%rcx)
+	movzbl	-40(%rsp), %ecx
+	notb	%cl
+	andb	$1, %cl
+	movabsq	$"_/switchA/dffpla1/sr/nor2/out", %rsi
+	movb	%cl, (%rsi)
+	andb	$1, %dil
+	movabsq	$"_/switchA/dffpla1/sr/nor1/out", %rcx
+	movb	%dil, (%rcx)
+	movl	%r15d, %ecx
+	andb	$1, %cl
+	movabsq	$"_/win_pla1/IC1A/out", %rsi
+	movb	%cl, (%rsi)
+	orb	%r14b, %r15b
+	andb	$1, %r14b
+	movabsq	$"_/win_pla1/IC1B/out", %rcx
+	movb	%r14b, (%rcx)
+	movl	%r9d, %ecx
+	movzbl	-39(%rsp), %ebx
+	orb	%bl, %r9b
+	movl	%r9d, %edi
+	orb	%r15b, %r9b
+	andb	$1, %r15b
+	movabsq	$"_/win_pla1/IC5A/out", %rsi
+	movb	%r15b, (%rsi)
+	andb	$1, %cl
+	movabsq	$"_/win_pla1/IC1C/out", %rsi
+	movb	%cl, (%rsi)
+	andb	$1, %bl
+	movabsq	$"_/win_pla1/IC2A/out", %rcx
+	movb	%bl, (%rcx)
+	andb	$1, %dil
+	movabsq	$"_/win_pla1/IC5B/out", %rcx
+	movb	%dil, (%rcx)
+	movl	%r9d, %ecx
+	andb	$1, %cl
+	movabsq	$"_/win_pla1/IC6A/out", %rsi
+	movb	%cl, (%rsi)
+	movl	%r11d, %ecx
+	movl	%r11d, %edi
+	orb	%r8b, %cl
+	andb	$1, %r8b
+	movabsq	$"_/win_pla1/IC2B/out", %rsi
+	movb	%r8b, (%rsi)
+	andb	$1, %dil
+	movabsq	$"_/win_pla1/IC2C/out", %rsi
+	movb	%dil, (%rsi)
+	movl	%eax, %r11d
+	movzbl	-36(%rsp), %ebp
+	orb	%bpl, %al
+	movl	%eax, %esi
+	orb	%cl, %al
+	movl	%ecx, %ebx
+	andb	$1, %bl
+	movabsq	$"_/win_pla1/IC5C/out", %rdi
+	movb	%bl, (%rdi)
+	andb	$1, %r11b
+	movabsq	$"_/win_pla1/IC3C/out", %rdi
+	movb	%r11b, (%rdi)
+	andb	$1, %bpl
+	movabsq	$"_/win_pla1/IC4C/out", %rcx
+	movb	%bpl, (%rcx)
+	andb	$1, %sil
+	movabsq	$"_/win_pla1/IC5D/out", %rcx
+	movb	%sil, (%rcx)
+	orb	%al, %r9b
+	andb	$1, %al
+	movabsq	$"_/win_pla1/IC6B/out", %rcx
+	movb	%al, (%rcx)
+	movl	%r9d, %eax
+	andb	$1, %al
+	movabsq	$"_/win_pla1/IC6C/out", %rcx
+	movb	%al, (%rcx)
+	movzbl	-29(%rsp), %ebx
+	movl	%ebx, %eax
+	andb	$1, %al
+	movabsq	$"_/win_pla2/IC1A/out", %rcx
+	movb	%al, (%rcx)
+	movzbl	-31(%rsp), %ecx
+	orb	%cl, %bl
+	andb	$1, %cl
+	movabsq	$"_/win_pla2/IC1B/out", %rax
+	movb	%cl, (%rax)
+	movzbl	-38(%rsp), %r8d
+	movl	%r8d, %eax
+	movzbl	-30(%rsp), %ecx
+	orb	%cl, %r8b
+	movl	%r8d, %edi
+	orb	%bl, %r8b
+	andb	$1, %bl
+	movabsq	$"_/win_pla2/IC5A/out", %rsi
+	movb	%bl, (%rsi)
+	andb	$1, %al
+	movabsq	$"_/win_pla2/IC1C/out", %rsi
+	movb	%al, (%rsi)
+	andb	$1, %cl
+	movabsq	$"_/win_pla2/IC2A/out", %rax
+	movb	%cl, (%rax)
+	andb	$1, %dil
+	movabsq	$"_/win_pla2/IC5B/out", %rax
+	movb	%dil, (%rax)
+	movl	%r8d, %eax
+	andb	$1, %al
+	movabsq	$"_/win_pla2/IC6A/out", %rcx
+	movb	%al, (%rcx)
+	movzbl	-62(%rsp), %ebx
+	movl	%ebx, %eax
+	andb	$1, %al
+	movabsq	$"_/win_pla2/IC2B/out", %rcx
+	movb	%al, (%rcx)
+	orb	%r12b, %bl
+	andb	$1, %r12b
+	movabsq	$"_/win_pla2/IC2C/out", %rax
+	movb	%r12b, (%rax)
+	movl	%r10d, %ecx
+	movl	%r10d, %eax
+	movzbl	-28(%rsp), %r11d
+	orb	%r11b, %cl
+	movl	%ecx, %edi
+	orb	%bl, %cl
+	andb	$1, %bl
+	movabsq	$"_/win_pla2/IC5C/out", %rsi
+	movb	%bl, (%rsi)
+	andb	$1, %al
+	movabsq	$"_/win_pla2/IC3C/out", %rsi
+	movb	%al, (%rsi)
+	andb	$1, %r11b
+	movabsq	$"_/win_pla2/IC4C/out", %rax
+	movb	%r11b, (%rax)
+	andb	$1, %dil
+	movabsq	$"_/win_pla2/IC5D/out", %rax
+	movb	%dil, (%rax)
+	orb	%cl, %r8b
+	andb	$1, %cl
+	movabsq	$"_/win_pla2/IC6B/out", %rax
+	movb	%cl, (%rax)
+	movl	%r8d, %eax
+	andb	$1, %al
+	movabsq	$"_/win_pla2/IC6C/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/one_win/IC1A/sr/nor2/out", %rsi
+	movzbl	(%rsi), %eax
+	movl	%r8d, %ecx
+	andb	%al, %cl
+	xorb	$1, %al
+	andb	%al, %r8b
+	andb	$1, %al
+	movabsq	$"_/one_win/IC1B/not_d/out", %rdi
+	movb	%al, (%rdi)
+	movl	%ecx, %eax
+	andb	$1, %al
+	movabsq	$"_/one_win/IC1B/and1/out", %rdi
+	movb	%al, (%rdi)
+	movabsq	$"_/one_win/IC1B/sr/nor1/out", %rdi
+	orb	(%rdi), %cl
+	movl	%r8d, %eax
+	andb	$1, %al
+	movabsq	$"_/one_win/IC1B/and2/out", %rbp
+	movb	%al, (%rbp)
+	movl	%ecx, %eax
+	xorb	$1, %al
+	notb	%r8b
+	andb	%cl, %r8b
+	andb	$1, %r8b
+	movb	%r8b, (%rdi)
+	movzbl	-19(%rsp), %r10d
+	movl	%r9d, %ebx
+	andb	%al, %bl
+	andb	$1, %al
+	movabsq	$"_/one_win/IC1B/sr/nor2/out", %rdi
+	movb	%al, (%rdi)
+	andb	%cl, %r9b
+	andb	$1, %cl
+	movabsq	$"_/one_win/IC1A/not_d/out", %rax
+	movb	%cl, (%rax)
+	movl	%ebx, %eax
+	andb	$1, %al
+	movabsq	$"_/one_win/IC1A/and1/out", %rcx
+	movb	%al, (%rcx)
+	movl	%r9d, %eax
+	andb	$1, %al
+	movabsq	$"_/one_win/IC1A/and2/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/one_win/IC1A/sr/nor1/out", %rax
+	orb	(%rax), %bl
+	notb	%r9b
+	andb	%bl, %r9b
+	notb	%bl
+	andb	$1, %bl
+	movb	%bl, (%rsi)
+	andb	$1, %r9b
+	movb	%r9b, (%rax)
+	movl	%edx, %ecx
+	andb	-10(%rsp), %cl
+	movabsq	$"_/switchD/xor1/out", %rax
+	movzbl	-9(%rsp), %ebx
+	andb	(%rax), %bl
+	movl	%ebx, %eax
+	andb	%cl, %bl
+	andb	$1, %cl
+	movabsq	$"_/all_pressed/IC1A/out", %rdx
+	movb	%cl, (%rdx)
+	andb	$1, %al
+	movabsq	$"_/all_pressed/IC1B/out", %rcx
+	movb	%al, (%rcx)
+	movl	%ebx, %eax
+	andb	$1, %al
+	movabsq	$"_/all_pressed/IC2A/out", %rcx
+	movb	%al, (%rcx)
+	movabsq	$"_/switchE/xor1/out", %rax
+	movzbl	(%rax), %eax
+	movabsq	$"_/switchF/xor1/out", %rcx
+	andb	(%rcx), %al
+	movzbl	-60(%rsp), %ecx
+	movabsq	$"_/switchG/xor1/out", %rdx
+	andb	(%rdx), %cl
+	movl	%ecx, %esi
+	andb	%al, %cl
+	andb	$1, %al
+	movabsq	$"_/all_pressed/IC1C/out", %rdx
+	movb	%al, (%rdx)
+	andb	$1, %sil
+	movabsq	$"_/all_pressed/IC1D/out", %rax
+	movb	%sil, (%rax)
+	andb	%cl, %bl
+	andb	$1, %cl
+	movabsq	$"_/all_pressed/IC2B/out", %rax
+	movb	%cl, (%rax)
+	movzbl	-71(%rsp), %ecx
+	andb	%bl, %cl
+	andb	$1, %bl
+	movabsq	$"_/all_pressed/IC2C/out", %rax
+	movb	%bl, (%rax)
+	andb	$1, %cl
+	movabsq	$"_/all_pressed/IC2D/out", %rax
+	movb	%cl, (%rax)
+	movabsq	$"_/switchB/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	movabsq	$"_/switchC/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	movabsq	$"_/switchD/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	movabsq	$"_/switchE/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	movabsq	$"_/switchF/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	movabsq	$"_/switchG/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	movabsq	$"_/switchH/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	movabsq	$"_/switchI/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	movabsq	$"_/switchA/dffmaster/and2/out", %rax
+	movb	$0, (%rax)
+	incq	%r13
+	movq	%r13, -8(%rsp)
+	jne	LBB1_1
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	retq
+
+	.globl	"_/switchAin/pin"
+.zerofill __DATA,__common,"_/switchAin/pin",1,3
+	.globl	"_/switchBin/pin"
+.zerofill __DATA,__common,"_/switchBin/pin",1,3
+	.globl	"_/switchCin/pin"
+.zerofill __DATA,__common,"_/switchCin/pin",1,3
+	.globl	"_/switchDin/pin"
+.zerofill __DATA,__common,"_/switchDin/pin",1,3
+	.globl	"_/switchEin/pin"
+.zerofill __DATA,__common,"_/switchEin/pin",1,3
+	.globl	"_/switchFin/pin"
+.zerofill __DATA,__common,"_/switchFin/pin",1,3
+	.globl	"_/switchGin/pin"
+.zerofill __DATA,__common,"_/switchGin/pin",1,3
+	.globl	"_/switchHin/pin"
+.zerofill __DATA,__common,"_/switchHin/pin",1,3
+	.globl	"_/switchIin/pin"
+.zerofill __DATA,__common,"_/switchIin/pin",1,3
+	.globl	"_/switchA/dffmaster/set/pin"
+.zerofill __DATA,__common,"_/switchA/dffmaster/set/pin",1,3
+	.globl	"_/switchA/dffmaster/reset/pin"
+.zerofill __DATA,__common,"_/switchA/dffmaster/reset/pin",1,3
+	.globl	"_/switchA/dffmaster/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchA/dffmaster/sr/nor1/out",1,3
+	.globl	"_/switchA/dffmaster/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchA/dffmaster/sr/nor2/out",1,3
+	.globl	"_/switchA/dffmaster/and1/out"
+.zerofill __DATA,__common,"_/switchA/dffmaster/and1/out",1,3
+	.globl	"_/switchA/dffmaster/and2/out"
+.zerofill __DATA,__common,"_/switchA/dffmaster/and2/out",1,3
+	.globl	"_/switchA/dffmaster/not_d/out"
+.zerofill __DATA,__common,"_/switchA/dffmaster/not_d/out",1,3
+	.globl	"_/switchA/dffpla1/set/pin"
+.zerofill __DATA,__common,"_/switchA/dffpla1/set/pin",1,3
+	.globl	"_/switchA/dffpla1/reset/pin"
+.zerofill __DATA,__common,"_/switchA/dffpla1/reset/pin",1,3
+	.globl	"_/switchA/dffpla1/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchA/dffpla1/sr/nor1/out",1,3
+	.globl	"_/switchA/dffpla1/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchA/dffpla1/sr/nor2/out",1,3
+	.globl	"_/switchA/dffpla1/and1/out"
+.zerofill __DATA,__common,"_/switchA/dffpla1/and1/out",1,3
+	.globl	"_/switchA/dffpla1/and2/out"
+.zerofill __DATA,__common,"_/switchA/dffpla1/and2/out",1,3
+	.globl	"_/switchA/dffpla1/not_d/out"
+.zerofill __DATA,__common,"_/switchA/dffpla1/not_d/out",1,3
+	.globl	"_/switchA/dffpla2/set/pin"
+.zerofill __DATA,__common,"_/switchA/dffpla2/set/pin",1,3
+	.globl	"_/switchA/dffpla2/reset/pin"
+.zerofill __DATA,__common,"_/switchA/dffpla2/reset/pin",1,3
+	.globl	"_/switchA/dffpla2/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchA/dffpla2/sr/nor1/out",1,3
+	.globl	"_/switchA/dffpla2/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchA/dffpla2/sr/nor2/out",1,3
+	.globl	"_/switchA/dffpla2/and1/out"
+.zerofill __DATA,__common,"_/switchA/dffpla2/and1/out",1,3
+	.globl	"_/switchA/dffpla2/and2/out"
+.zerofill __DATA,__common,"_/switchA/dffpla2/and2/out",1,3
+	.globl	"_/switchA/dffpla2/not_d/out"
+.zerofill __DATA,__common,"_/switchA/dffpla2/not_d/out",1,3
+	.globl	"_/switchA/xor1/out"
+.zerofill __DATA,__common,"_/switchA/xor1/out",1,3
+	.globl	"_/switchA/and1/out"
+.zerofill __DATA,__common,"_/switchA/and1/out",1,3
+	.globl	"_/switchA/not1/out"
+.zerofill __DATA,__common,"_/switchA/not1/out",1,3
+	.globl	"_/switchB/dffmaster/set/pin"
+.zerofill __DATA,__common,"_/switchB/dffmaster/set/pin",1,3
+	.globl	"_/switchB/dffmaster/reset/pin"
+.zerofill __DATA,__common,"_/switchB/dffmaster/reset/pin",1,3
+	.globl	"_/switchB/dffmaster/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchB/dffmaster/sr/nor1/out",1,3
+	.globl	"_/switchB/dffmaster/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchB/dffmaster/sr/nor2/out",1,3
+	.globl	"_/switchB/dffmaster/and1/out"
+.zerofill __DATA,__common,"_/switchB/dffmaster/and1/out",1,3
+	.globl	"_/switchB/dffmaster/and2/out"
+.zerofill __DATA,__common,"_/switchB/dffmaster/and2/out",1,3
+	.globl	"_/switchB/dffmaster/not_d/out"
+.zerofill __DATA,__common,"_/switchB/dffmaster/not_d/out",1,3
+	.globl	"_/switchB/dffpla1/set/pin"
+.zerofill __DATA,__common,"_/switchB/dffpla1/set/pin",1,3
+	.globl	"_/switchB/dffpla1/reset/pin"
+.zerofill __DATA,__common,"_/switchB/dffpla1/reset/pin",1,3
+	.globl	"_/switchB/dffpla1/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchB/dffpla1/sr/nor1/out",1,3
+	.globl	"_/switchB/dffpla1/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchB/dffpla1/sr/nor2/out",1,3
+	.globl	"_/switchB/dffpla1/and1/out"
+.zerofill __DATA,__common,"_/switchB/dffpla1/and1/out",1,3
+	.globl	"_/switchB/dffpla1/and2/out"
+.zerofill __DATA,__common,"_/switchB/dffpla1/and2/out",1,3
+	.globl	"_/switchB/dffpla1/not_d/out"
+.zerofill __DATA,__common,"_/switchB/dffpla1/not_d/out",1,3
+	.globl	"_/switchB/dffpla2/set/pin"
+.zerofill __DATA,__common,"_/switchB/dffpla2/set/pin",1,3
+	.globl	"_/switchB/dffpla2/reset/pin"
+.zerofill __DATA,__common,"_/switchB/dffpla2/reset/pin",1,3
+	.globl	"_/switchB/dffpla2/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchB/dffpla2/sr/nor1/out",1,3
+	.globl	"_/switchB/dffpla2/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchB/dffpla2/sr/nor2/out",1,3
+	.globl	"_/switchB/dffpla2/and1/out"
+.zerofill __DATA,__common,"_/switchB/dffpla2/and1/out",1,3
+	.globl	"_/switchB/dffpla2/and2/out"
+.zerofill __DATA,__common,"_/switchB/dffpla2/and2/out",1,3
+	.globl	"_/switchB/dffpla2/not_d/out"
+.zerofill __DATA,__common,"_/switchB/dffpla2/not_d/out",1,3
+	.globl	"_/switchB/xor1/out"
+.zerofill __DATA,__common,"_/switchB/xor1/out",1,3
+	.globl	"_/switchB/and1/out"
+.zerofill __DATA,__common,"_/switchB/and1/out",1,3
+	.globl	"_/switchB/not1/out"
+.zerofill __DATA,__common,"_/switchB/not1/out",1,3
+	.globl	"_/switchC/dffmaster/set/pin"
+.zerofill __DATA,__common,"_/switchC/dffmaster/set/pin",1,3
+	.globl	"_/switchC/dffmaster/reset/pin"
+.zerofill __DATA,__common,"_/switchC/dffmaster/reset/pin",1,3
+	.globl	"_/switchC/dffmaster/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchC/dffmaster/sr/nor1/out",1,3
+	.globl	"_/switchC/dffmaster/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchC/dffmaster/sr/nor2/out",1,3
+	.globl	"_/switchC/dffmaster/and1/out"
+.zerofill __DATA,__common,"_/switchC/dffmaster/and1/out",1,3
+	.globl	"_/switchC/dffmaster/and2/out"
+.zerofill __DATA,__common,"_/switchC/dffmaster/and2/out",1,3
+	.globl	"_/switchC/dffmaster/not_d/out"
+.zerofill __DATA,__common,"_/switchC/dffmaster/not_d/out",1,3
+	.globl	"_/switchC/dffpla1/set/pin"
+.zerofill __DATA,__common,"_/switchC/dffpla1/set/pin",1,3
+	.globl	"_/switchC/dffpla1/reset/pin"
+.zerofill __DATA,__common,"_/switchC/dffpla1/reset/pin",1,3
+	.globl	"_/switchC/dffpla1/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchC/dffpla1/sr/nor1/out",1,3
+	.globl	"_/switchC/dffpla1/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchC/dffpla1/sr/nor2/out",1,3
+	.globl	"_/switchC/dffpla1/and1/out"
+.zerofill __DATA,__common,"_/switchC/dffpla1/and1/out",1,3
+	.globl	"_/switchC/dffpla1/and2/out"
+.zerofill __DATA,__common,"_/switchC/dffpla1/and2/out",1,3
+	.globl	"_/switchC/dffpla1/not_d/out"
+.zerofill __DATA,__common,"_/switchC/dffpla1/not_d/out",1,3
+	.globl	"_/switchC/dffpla2/set/pin"
+.zerofill __DATA,__common,"_/switchC/dffpla2/set/pin",1,3
+	.globl	"_/switchC/dffpla2/reset/pin"
+.zerofill __DATA,__common,"_/switchC/dffpla2/reset/pin",1,3
+	.globl	"_/switchC/dffpla2/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchC/dffpla2/sr/nor1/out",1,3
+	.globl	"_/switchC/dffpla2/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchC/dffpla2/sr/nor2/out",1,3
+	.globl	"_/switchC/dffpla2/and1/out"
+.zerofill __DATA,__common,"_/switchC/dffpla2/and1/out",1,3
+	.globl	"_/switchC/dffpla2/and2/out"
+.zerofill __DATA,__common,"_/switchC/dffpla2/and2/out",1,3
+	.globl	"_/switchC/dffpla2/not_d/out"
+.zerofill __DATA,__common,"_/switchC/dffpla2/not_d/out",1,3
+	.globl	"_/switchC/xor1/out"
+.zerofill __DATA,__common,"_/switchC/xor1/out",1,3
+	.globl	"_/switchC/and1/out"
+.zerofill __DATA,__common,"_/switchC/and1/out",1,3
+	.globl	"_/switchC/not1/out"
+.zerofill __DATA,__common,"_/switchC/not1/out",1,3
+	.globl	"_/switchD/dffmaster/set/pin"
+.zerofill __DATA,__common,"_/switchD/dffmaster/set/pin",1,3
+	.globl	"_/switchD/dffmaster/reset/pin"
+.zerofill __DATA,__common,"_/switchD/dffmaster/reset/pin",1,3
+	.globl	"_/switchD/dffmaster/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchD/dffmaster/sr/nor1/out",1,3
+	.globl	"_/switchD/dffmaster/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchD/dffmaster/sr/nor2/out",1,3
+	.globl	"_/switchD/dffmaster/and1/out"
+.zerofill __DATA,__common,"_/switchD/dffmaster/and1/out",1,3
+	.globl	"_/switchD/dffmaster/and2/out"
+.zerofill __DATA,__common,"_/switchD/dffmaster/and2/out",1,3
+	.globl	"_/switchD/dffmaster/not_d/out"
+.zerofill __DATA,__common,"_/switchD/dffmaster/not_d/out",1,3
+	.globl	"_/switchD/dffpla1/set/pin"
+.zerofill __DATA,__common,"_/switchD/dffpla1/set/pin",1,3
+	.globl	"_/switchD/dffpla1/reset/pin"
+.zerofill __DATA,__common,"_/switchD/dffpla1/reset/pin",1,3
+	.globl	"_/switchD/dffpla1/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchD/dffpla1/sr/nor1/out",1,3
+	.globl	"_/switchD/dffpla1/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchD/dffpla1/sr/nor2/out",1,3
+	.globl	"_/switchD/dffpla1/and1/out"
+.zerofill __DATA,__common,"_/switchD/dffpla1/and1/out",1,3
+	.globl	"_/switchD/dffpla1/and2/out"
+.zerofill __DATA,__common,"_/switchD/dffpla1/and2/out",1,3
+	.globl	"_/switchD/dffpla1/not_d/out"
+.zerofill __DATA,__common,"_/switchD/dffpla1/not_d/out",1,3
+	.globl	"_/switchD/dffpla2/set/pin"
+.zerofill __DATA,__common,"_/switchD/dffpla2/set/pin",1,3
+	.globl	"_/switchD/dffpla2/reset/pin"
+.zerofill __DATA,__common,"_/switchD/dffpla2/reset/pin",1,3
+	.globl	"_/switchD/dffpla2/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchD/dffpla2/sr/nor1/out",1,3
+	.globl	"_/switchD/dffpla2/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchD/dffpla2/sr/nor2/out",1,3
+	.globl	"_/switchD/dffpla2/and1/out"
+.zerofill __DATA,__common,"_/switchD/dffpla2/and1/out",1,3
+	.globl	"_/switchD/dffpla2/and2/out"
+.zerofill __DATA,__common,"_/switchD/dffpla2/and2/out",1,3
+	.globl	"_/switchD/dffpla2/not_d/out"
+.zerofill __DATA,__common,"_/switchD/dffpla2/not_d/out",1,3
+	.globl	"_/switchD/xor1/out"
+.zerofill __DATA,__common,"_/switchD/xor1/out",1,3
+	.globl	"_/switchD/and1/out"
+.zerofill __DATA,__common,"_/switchD/and1/out",1,3
+	.globl	"_/switchD/not1/out"
+.zerofill __DATA,__common,"_/switchD/not1/out",1,3
+	.globl	"_/switchE/dffmaster/set/pin"
+.zerofill __DATA,__common,"_/switchE/dffmaster/set/pin",1,3
+	.globl	"_/switchE/dffmaster/reset/pin"
+.zerofill __DATA,__common,"_/switchE/dffmaster/reset/pin",1,3
+	.globl	"_/switchE/dffmaster/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchE/dffmaster/sr/nor1/out",1,3
+	.globl	"_/switchE/dffmaster/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchE/dffmaster/sr/nor2/out",1,3
+	.globl	"_/switchE/dffmaster/and1/out"
+.zerofill __DATA,__common,"_/switchE/dffmaster/and1/out",1,3
+	.globl	"_/switchE/dffmaster/and2/out"
+.zerofill __DATA,__common,"_/switchE/dffmaster/and2/out",1,3
+	.globl	"_/switchE/dffmaster/not_d/out"
+.zerofill __DATA,__common,"_/switchE/dffmaster/not_d/out",1,3
+	.globl	"_/switchE/dffpla1/set/pin"
+.zerofill __DATA,__common,"_/switchE/dffpla1/set/pin",1,3
+	.globl	"_/switchE/dffpla1/reset/pin"
+.zerofill __DATA,__common,"_/switchE/dffpla1/reset/pin",1,3
+	.globl	"_/switchE/dffpla1/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchE/dffpla1/sr/nor1/out",1,3
+	.globl	"_/switchE/dffpla1/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchE/dffpla1/sr/nor2/out",1,3
+	.globl	"_/switchE/dffpla1/and1/out"
+.zerofill __DATA,__common,"_/switchE/dffpla1/and1/out",1,3
+	.globl	"_/switchE/dffpla1/and2/out"
+.zerofill __DATA,__common,"_/switchE/dffpla1/and2/out",1,3
+	.globl	"_/switchE/dffpla1/not_d/out"
+.zerofill __DATA,__common,"_/switchE/dffpla1/not_d/out",1,3
+	.globl	"_/switchE/dffpla2/set/pin"
+.zerofill __DATA,__common,"_/switchE/dffpla2/set/pin",1,3
+	.globl	"_/switchE/dffpla2/reset/pin"
+.zerofill __DATA,__common,"_/switchE/dffpla2/reset/pin",1,3
+	.globl	"_/switchE/dffpla2/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchE/dffpla2/sr/nor1/out",1,3
+	.globl	"_/switchE/dffpla2/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchE/dffpla2/sr/nor2/out",1,3
+	.globl	"_/switchE/dffpla2/and1/out"
+.zerofill __DATA,__common,"_/switchE/dffpla2/and1/out",1,3
+	.globl	"_/switchE/dffpla2/and2/out"
+.zerofill __DATA,__common,"_/switchE/dffpla2/and2/out",1,3
+	.globl	"_/switchE/dffpla2/not_d/out"
+.zerofill __DATA,__common,"_/switchE/dffpla2/not_d/out",1,3
+	.globl	"_/switchE/xor1/out"
+.zerofill __DATA,__common,"_/switchE/xor1/out",1,3
+	.globl	"_/switchE/and1/out"
+.zerofill __DATA,__common,"_/switchE/and1/out",1,3
+	.globl	"_/switchE/not1/out"
+.zerofill __DATA,__common,"_/switchE/not1/out",1,3
+	.globl	"_/switchF/dffmaster/set/pin"
+.zerofill __DATA,__common,"_/switchF/dffmaster/set/pin",1,3
+	.globl	"_/switchF/dffmaster/reset/pin"
+.zerofill __DATA,__common,"_/switchF/dffmaster/reset/pin",1,3
+	.globl	"_/switchF/dffmaster/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchF/dffmaster/sr/nor1/out",1,3
+	.globl	"_/switchF/dffmaster/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchF/dffmaster/sr/nor2/out",1,3
+	.globl	"_/switchF/dffmaster/and1/out"
+.zerofill __DATA,__common,"_/switchF/dffmaster/and1/out",1,3
+	.globl	"_/switchF/dffmaster/and2/out"
+.zerofill __DATA,__common,"_/switchF/dffmaster/and2/out",1,3
+	.globl	"_/switchF/dffmaster/not_d/out"
+.zerofill __DATA,__common,"_/switchF/dffmaster/not_d/out",1,3
+	.globl	"_/switchF/dffpla1/set/pin"
+.zerofill __DATA,__common,"_/switchF/dffpla1/set/pin",1,3
+	.globl	"_/switchF/dffpla1/reset/pin"
+.zerofill __DATA,__common,"_/switchF/dffpla1/reset/pin",1,3
+	.globl	"_/switchF/dffpla1/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchF/dffpla1/sr/nor1/out",1,3
+	.globl	"_/switchF/dffpla1/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchF/dffpla1/sr/nor2/out",1,3
+	.globl	"_/switchF/dffpla1/and1/out"
+.zerofill __DATA,__common,"_/switchF/dffpla1/and1/out",1,3
+	.globl	"_/switchF/dffpla1/and2/out"
+.zerofill __DATA,__common,"_/switchF/dffpla1/and2/out",1,3
+	.globl	"_/switchF/dffpla1/not_d/out"
+.zerofill __DATA,__common,"_/switchF/dffpla1/not_d/out",1,3
+	.globl	"_/switchF/dffpla2/set/pin"
+.zerofill __DATA,__common,"_/switchF/dffpla2/set/pin",1,3
+	.globl	"_/switchF/dffpla2/reset/pin"
+.zerofill __DATA,__common,"_/switchF/dffpla2/reset/pin",1,3
+	.globl	"_/switchF/dffpla2/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchF/dffpla2/sr/nor1/out",1,3
+	.globl	"_/switchF/dffpla2/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchF/dffpla2/sr/nor2/out",1,3
+	.globl	"_/switchF/dffpla2/and1/out"
+.zerofill __DATA,__common,"_/switchF/dffpla2/and1/out",1,3
+	.globl	"_/switchF/dffpla2/and2/out"
+.zerofill __DATA,__common,"_/switchF/dffpla2/and2/out",1,3
+	.globl	"_/switchF/dffpla2/not_d/out"
+.zerofill __DATA,__common,"_/switchF/dffpla2/not_d/out",1,3
+	.globl	"_/switchF/xor1/out"
+.zerofill __DATA,__common,"_/switchF/xor1/out",1,3
+	.globl	"_/switchF/and1/out"
+.zerofill __DATA,__common,"_/switchF/and1/out",1,3
+	.globl	"_/switchF/not1/out"
+.zerofill __DATA,__common,"_/switchF/not1/out",1,3
+	.globl	"_/switchG/dffmaster/set/pin"
+.zerofill __DATA,__common,"_/switchG/dffmaster/set/pin",1,3
+	.globl	"_/switchG/dffmaster/reset/pin"
+.zerofill __DATA,__common,"_/switchG/dffmaster/reset/pin",1,3
+	.globl	"_/switchG/dffmaster/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchG/dffmaster/sr/nor1/out",1,3
+	.globl	"_/switchG/dffmaster/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchG/dffmaster/sr/nor2/out",1,3
+	.globl	"_/switchG/dffmaster/and1/out"
+.zerofill __DATA,__common,"_/switchG/dffmaster/and1/out",1,3
+	.globl	"_/switchG/dffmaster/and2/out"
+.zerofill __DATA,__common,"_/switchG/dffmaster/and2/out",1,3
+	.globl	"_/switchG/dffmaster/not_d/out"
+.zerofill __DATA,__common,"_/switchG/dffmaster/not_d/out",1,3
+	.globl	"_/switchG/dffpla1/set/pin"
+.zerofill __DATA,__common,"_/switchG/dffpla1/set/pin",1,3
+	.globl	"_/switchG/dffpla1/reset/pin"
+.zerofill __DATA,__common,"_/switchG/dffpla1/reset/pin",1,3
+	.globl	"_/switchG/dffpla1/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchG/dffpla1/sr/nor1/out",1,3
+	.globl	"_/switchG/dffpla1/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchG/dffpla1/sr/nor2/out",1,3
+	.globl	"_/switchG/dffpla1/and1/out"
+.zerofill __DATA,__common,"_/switchG/dffpla1/and1/out",1,3
+	.globl	"_/switchG/dffpla1/and2/out"
+.zerofill __DATA,__common,"_/switchG/dffpla1/and2/out",1,3
+	.globl	"_/switchG/dffpla1/not_d/out"
+.zerofill __DATA,__common,"_/switchG/dffpla1/not_d/out",1,3
+	.globl	"_/switchG/dffpla2/set/pin"
+.zerofill __DATA,__common,"_/switchG/dffpla2/set/pin",1,3
+	.globl	"_/switchG/dffpla2/reset/pin"
+.zerofill __DATA,__common,"_/switchG/dffpla2/reset/pin",1,3
+	.globl	"_/switchG/dffpla2/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchG/dffpla2/sr/nor1/out",1,3
+	.globl	"_/switchG/dffpla2/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchG/dffpla2/sr/nor2/out",1,3
+	.globl	"_/switchG/dffpla2/and1/out"
+.zerofill __DATA,__common,"_/switchG/dffpla2/and1/out",1,3
+	.globl	"_/switchG/dffpla2/and2/out"
+.zerofill __DATA,__common,"_/switchG/dffpla2/and2/out",1,3
+	.globl	"_/switchG/dffpla2/not_d/out"
+.zerofill __DATA,__common,"_/switchG/dffpla2/not_d/out",1,3
+	.globl	"_/switchG/xor1/out"
+.zerofill __DATA,__common,"_/switchG/xor1/out",1,3
+	.globl	"_/switchG/and1/out"
+.zerofill __DATA,__common,"_/switchG/and1/out",1,3
+	.globl	"_/switchG/not1/out"
+.zerofill __DATA,__common,"_/switchG/not1/out",1,3
+	.globl	"_/switchH/dffmaster/set/pin"
+.zerofill __DATA,__common,"_/switchH/dffmaster/set/pin",1,3
+	.globl	"_/switchH/dffmaster/reset/pin"
+.zerofill __DATA,__common,"_/switchH/dffmaster/reset/pin",1,3
+	.globl	"_/switchH/dffmaster/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchH/dffmaster/sr/nor1/out",1,3
+	.globl	"_/switchH/dffmaster/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchH/dffmaster/sr/nor2/out",1,3
+	.globl	"_/switchH/dffmaster/and1/out"
+.zerofill __DATA,__common,"_/switchH/dffmaster/and1/out",1,3
+	.globl	"_/switchH/dffmaster/and2/out"
+.zerofill __DATA,__common,"_/switchH/dffmaster/and2/out",1,3
+	.globl	"_/switchH/dffmaster/not_d/out"
+.zerofill __DATA,__common,"_/switchH/dffmaster/not_d/out",1,3
+	.globl	"_/switchH/dffpla1/set/pin"
+.zerofill __DATA,__common,"_/switchH/dffpla1/set/pin",1,3
+	.globl	"_/switchH/dffpla1/reset/pin"
+.zerofill __DATA,__common,"_/switchH/dffpla1/reset/pin",1,3
+	.globl	"_/switchH/dffpla1/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchH/dffpla1/sr/nor1/out",1,3
+	.globl	"_/switchH/dffpla1/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchH/dffpla1/sr/nor2/out",1,3
+	.globl	"_/switchH/dffpla1/and1/out"
+.zerofill __DATA,__common,"_/switchH/dffpla1/and1/out",1,3
+	.globl	"_/switchH/dffpla1/and2/out"
+.zerofill __DATA,__common,"_/switchH/dffpla1/and2/out",1,3
+	.globl	"_/switchH/dffpla1/not_d/out"
+.zerofill __DATA,__common,"_/switchH/dffpla1/not_d/out",1,3
+	.globl	"_/switchH/dffpla2/set/pin"
+.zerofill __DATA,__common,"_/switchH/dffpla2/set/pin",1,3
+	.globl	"_/switchH/dffpla2/reset/pin"
+.zerofill __DATA,__common,"_/switchH/dffpla2/reset/pin",1,3
+	.globl	"_/switchH/dffpla2/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchH/dffpla2/sr/nor1/out",1,3
+	.globl	"_/switchH/dffpla2/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchH/dffpla2/sr/nor2/out",1,3
+	.globl	"_/switchH/dffpla2/and1/out"
+.zerofill __DATA,__common,"_/switchH/dffpla2/and1/out",1,3
+	.globl	"_/switchH/dffpla2/and2/out"
+.zerofill __DATA,__common,"_/switchH/dffpla2/and2/out",1,3
+	.globl	"_/switchH/dffpla2/not_d/out"
+.zerofill __DATA,__common,"_/switchH/dffpla2/not_d/out",1,3
+	.globl	"_/switchH/xor1/out"
+.zerofill __DATA,__common,"_/switchH/xor1/out",1,3
+	.globl	"_/switchH/and1/out"
+.zerofill __DATA,__common,"_/switchH/and1/out",1,3
+	.globl	"_/switchH/not1/out"
+.zerofill __DATA,__common,"_/switchH/not1/out",1,3
+	.globl	"_/switchI/dffmaster/set/pin"
+.zerofill __DATA,__common,"_/switchI/dffmaster/set/pin",1,3
+	.globl	"_/switchI/dffmaster/reset/pin"
+.zerofill __DATA,__common,"_/switchI/dffmaster/reset/pin",1,3
+	.globl	"_/switchI/dffmaster/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchI/dffmaster/sr/nor1/out",1,3
+	.globl	"_/switchI/dffmaster/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchI/dffmaster/sr/nor2/out",1,3
+	.globl	"_/switchI/dffmaster/and1/out"
+.zerofill __DATA,__common,"_/switchI/dffmaster/and1/out",1,3
+	.globl	"_/switchI/dffmaster/and2/out"
+.zerofill __DATA,__common,"_/switchI/dffmaster/and2/out",1,3
+	.globl	"_/switchI/dffmaster/not_d/out"
+.zerofill __DATA,__common,"_/switchI/dffmaster/not_d/out",1,3
+	.globl	"_/switchI/dffpla1/set/pin"
+.zerofill __DATA,__common,"_/switchI/dffpla1/set/pin",1,3
+	.globl	"_/switchI/dffpla1/reset/pin"
+.zerofill __DATA,__common,"_/switchI/dffpla1/reset/pin",1,3
+	.globl	"_/switchI/dffpla1/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchI/dffpla1/sr/nor1/out",1,3
+	.globl	"_/switchI/dffpla1/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchI/dffpla1/sr/nor2/out",1,3
+	.globl	"_/switchI/dffpla1/and1/out"
+.zerofill __DATA,__common,"_/switchI/dffpla1/and1/out",1,3
+	.globl	"_/switchI/dffpla1/and2/out"
+.zerofill __DATA,__common,"_/switchI/dffpla1/and2/out",1,3
+	.globl	"_/switchI/dffpla1/not_d/out"
+.zerofill __DATA,__common,"_/switchI/dffpla1/not_d/out",1,3
+	.globl	"_/switchI/dffpla2/set/pin"
+.zerofill __DATA,__common,"_/switchI/dffpla2/set/pin",1,3
+	.globl	"_/switchI/dffpla2/reset/pin"
+.zerofill __DATA,__common,"_/switchI/dffpla2/reset/pin",1,3
+	.globl	"_/switchI/dffpla2/sr/nor1/out"
+.zerofill __DATA,__common,"_/switchI/dffpla2/sr/nor1/out",1,3
+	.globl	"_/switchI/dffpla2/sr/nor2/out"
+.zerofill __DATA,__common,"_/switchI/dffpla2/sr/nor2/out",1,3
+	.globl	"_/switchI/dffpla2/and1/out"
+.zerofill __DATA,__common,"_/switchI/dffpla2/and1/out",1,3
+	.globl	"_/switchI/dffpla2/and2/out"
+.zerofill __DATA,__common,"_/switchI/dffpla2/and2/out",1,3
+	.globl	"_/switchI/dffpla2/not_d/out"
+.zerofill __DATA,__common,"_/switchI/dffpla2/not_d/out",1,3
+	.globl	"_/switchI/xor1/out"
+.zerofill __DATA,__common,"_/switchI/xor1/out",1,3
+	.globl	"_/switchI/and1/out"
+.zerofill __DATA,__common,"_/switchI/and1/out",1,3
+	.globl	"_/switchI/not1/out"
+.zerofill __DATA,__common,"_/switchI/not1/out",1,3
+	.globl	"_/profile_gen/not1/out"
+.zerofill __DATA,__common,"_/profile_gen/not1/out",1,3
+	.globl	"_/profile_gen/IC1A/out"
+.zerofill __DATA,__common,"_/profile_gen/IC1A/out",1,3
+	.globl	"_/profile_gen/IC1B/out"
+.zerofill __DATA,__common,"_/profile_gen/IC1B/out",1,3
+	.globl	"_/profile_gen/IC1C/out"
+.zerofill __DATA,__common,"_/profile_gen/IC1C/out",1,3
+	.globl	"_/profile_gen/IC1D/out"
+.zerofill __DATA,__common,"_/profile_gen/IC1D/out",1,3
+	.globl	"_/profile_gen/IC2A/out"
+.zerofill __DATA,__common,"_/profile_gen/IC2A/out",1,3
+	.globl	"_/profile_gen/IC2B/out"
+.zerofill __DATA,__common,"_/profile_gen/IC2B/out",1,3
+	.globl	"_/profile_gen/IC2C/out"
+.zerofill __DATA,__common,"_/profile_gen/IC2C/out",1,3
+	.globl	"_/profile_gen/IC2D/out"
+.zerofill __DATA,__common,"_/profile_gen/IC2D/out",1,3
+	.globl	"_/win_pla1/IC1A/out"
+.zerofill __DATA,__common,"_/win_pla1/IC1A/out",1,3
+	.globl	"_/win_pla1/IC1B/out"
+.zerofill __DATA,__common,"_/win_pla1/IC1B/out",1,3
+	.globl	"_/win_pla1/IC1C/out"
+.zerofill __DATA,__common,"_/win_pla1/IC1C/out",1,3
+	.globl	"_/win_pla1/IC2A/out"
+.zerofill __DATA,__common,"_/win_pla1/IC2A/out",1,3
+	.globl	"_/win_pla1/IC2B/out"
+.zerofill __DATA,__common,"_/win_pla1/IC2B/out",1,3
+	.globl	"_/win_pla1/IC2C/out"
+.zerofill __DATA,__common,"_/win_pla1/IC2C/out",1,3
+	.globl	"_/win_pla1/IC3C/out"
+.zerofill __DATA,__common,"_/win_pla1/IC3C/out",1,3
+	.globl	"_/win_pla1/IC4C/out"
+.zerofill __DATA,__common,"_/win_pla1/IC4C/out",1,3
+	.globl	"_/win_pla1/IC5A/out"
+.zerofill __DATA,__common,"_/win_pla1/IC5A/out",1,3
+	.globl	"_/win_pla1/IC5B/out"
+.zerofill __DATA,__common,"_/win_pla1/IC5B/out",1,3
+	.globl	"_/win_pla1/IC5C/out"
+.zerofill __DATA,__common,"_/win_pla1/IC5C/out",1,3
+	.globl	"_/win_pla1/IC5D/out"
+.zerofill __DATA,__common,"_/win_pla1/IC5D/out",1,3
+	.globl	"_/win_pla1/IC6A/out"
+.zerofill __DATA,__common,"_/win_pla1/IC6A/out",1,3
+	.globl	"_/win_pla1/IC6B/out"
+.zerofill __DATA,__common,"_/win_pla1/IC6B/out",1,3
+	.globl	"_/win_pla1/IC6C/out"
+.zerofill __DATA,__common,"_/win_pla1/IC6C/out",1,3
+	.globl	"_/win_pla2/IC1A/out"
+.zerofill __DATA,__common,"_/win_pla2/IC1A/out",1,3
+	.globl	"_/win_pla2/IC1B/out"
+.zerofill __DATA,__common,"_/win_pla2/IC1B/out",1,3
+	.globl	"_/win_pla2/IC1C/out"
+.zerofill __DATA,__common,"_/win_pla2/IC1C/out",1,3
+	.globl	"_/win_pla2/IC2A/out"
+.zerofill __DATA,__common,"_/win_pla2/IC2A/out",1,3
+	.globl	"_/win_pla2/IC2B/out"
+.zerofill __DATA,__common,"_/win_pla2/IC2B/out",1,3
+	.globl	"_/win_pla2/IC2C/out"
+.zerofill __DATA,__common,"_/win_pla2/IC2C/out",1,3
+	.globl	"_/win_pla2/IC3C/out"
+.zerofill __DATA,__common,"_/win_pla2/IC3C/out",1,3
+	.globl	"_/win_pla2/IC4C/out"
+.zerofill __DATA,__common,"_/win_pla2/IC4C/out",1,3
+	.globl	"_/win_pla2/IC5A/out"
+.zerofill __DATA,__common,"_/win_pla2/IC5A/out",1,3
+	.globl	"_/win_pla2/IC5B/out"
+.zerofill __DATA,__common,"_/win_pla2/IC5B/out",1,3
+	.globl	"_/win_pla2/IC5C/out"
+.zerofill __DATA,__common,"_/win_pla2/IC5C/out",1,3
+	.globl	"_/win_pla2/IC5D/out"
+.zerofill __DATA,__common,"_/win_pla2/IC5D/out",1,3
+	.globl	"_/win_pla2/IC6A/out"
+.zerofill __DATA,__common,"_/win_pla2/IC6A/out",1,3
+	.globl	"_/win_pla2/IC6B/out"
+.zerofill __DATA,__common,"_/win_pla2/IC6B/out",1,3
+	.globl	"_/win_pla2/IC6C/out"
+.zerofill __DATA,__common,"_/win_pla2/IC6C/out",1,3
+	.globl	"_/all_pressed/IC1A/out"
+.zerofill __DATA,__common,"_/all_pressed/IC1A/out",1,3
+	.globl	"_/all_pressed/IC1B/out"
+.zerofill __DATA,__common,"_/all_pressed/IC1B/out",1,3
+	.globl	"_/all_pressed/IC1C/out"
+.zerofill __DATA,__common,"_/all_pressed/IC1C/out",1,3
+	.globl	"_/all_pressed/IC1D/out"
+.zerofill __DATA,__common,"_/all_pressed/IC1D/out",1,3
+	.globl	"_/all_pressed/IC2A/out"
+.zerofill __DATA,__common,"_/all_pressed/IC2A/out",1,3
+	.globl	"_/all_pressed/IC2B/out"
+.zerofill __DATA,__common,"_/all_pressed/IC2B/out",1,3
+	.globl	"_/all_pressed/IC2C/out"
+.zerofill __DATA,__common,"_/all_pressed/IC2C/out",1,3
+	.globl	"_/all_pressed/IC2D/out"
+.zerofill __DATA,__common,"_/all_pressed/IC2D/out",1,3
+	.globl	"_/one_win/IC1A/set/pin"
+.zerofill __DATA,__common,"_/one_win/IC1A/set/pin",1,3
+	.globl	"_/one_win/IC1A/reset/pin"
+.zerofill __DATA,__common,"_/one_win/IC1A/reset/pin",1,3
+	.globl	"_/one_win/IC1A/sr/nor1/out"
+.zerofill __DATA,__common,"_/one_win/IC1A/sr/nor1/out",1,3
+	.globl	"_/one_win/IC1A/sr/nor2/out"
+.zerofill __DATA,__common,"_/one_win/IC1A/sr/nor2/out",1,3
+	.globl	"_/one_win/IC1A/and1/out"
+.zerofill __DATA,__common,"_/one_win/IC1A/and1/out",1,3
+	.globl	"_/one_win/IC1A/and2/out"
+.zerofill __DATA,__common,"_/one_win/IC1A/and2/out",1,3
+	.globl	"_/one_win/IC1A/not_d/out"
+.zerofill __DATA,__common,"_/one_win/IC1A/not_d/out",1,3
+	.globl	"_/one_win/IC1B/set/pin"
+.zerofill __DATA,__common,"_/one_win/IC1B/set/pin",1,3
+	.globl	"_/one_win/IC1B/reset/pin"
+.zerofill __DATA,__common,"_/one_win/IC1B/reset/pin",1,3
+	.globl	"_/one_win/IC1B/sr/nor1/out"
+.zerofill __DATA,__common,"_/one_win/IC1B/sr/nor1/out",1,3
+	.globl	"_/one_win/IC1B/sr/nor2/out"
+.zerofill __DATA,__common,"_/one_win/IC1B/sr/nor2/out",1,3
+	.globl	"_/one_win/IC1B/and1/out"
+.zerofill __DATA,__common,"_/one_win/IC1B/and1/out",1,3
+	.globl	"_/one_win/IC1B/and2/out"
+.zerofill __DATA,__common,"_/one_win/IC1B/and2/out",1,3
+	.globl	"_/one_win/IC1B/not_d/out"
+.zerofill __DATA,__common,"_/one_win/IC1B/not_d/out",1,3
+.subsections_via_symbols
+
